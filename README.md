@@ -4,7 +4,7 @@
 
 ## Demo
 
-###. zhihu_particle: 知乎粒子登录动态效果
+### zhihu_particle: 知乎粒子登录动态效果
 
 1. html代码
 首先要制作我们的页面，用到的是html5的新标签canvas；其实canvas就是我们需要用javascript脚本语言来绘图的“画布”，只是相当于一个容器呈现我们画图的结果，所以我们在页面中需要创建一个充满屏幕的canvas
