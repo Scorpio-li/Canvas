@@ -121,4 +121,7 @@ canvas{display: block;width: 100%;height: 100%;}
 
 
 ## canvas
+
 ### 1. html2Canvas实现页面截图及下载
+
+### 2. canvas绘制进度盘
