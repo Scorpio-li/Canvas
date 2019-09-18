@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>loading动画</title>
+    <style>
+        .loading-box {
+            overflow: hidden;
+            width: 100px;
+            height: 100px;
+            margin: 50px auto;
+            background: #d8d8d8;
+            border-radius: 5px;
+        }
+        
+        .loading1 {
+            height: 34px;
+            margin-top: 33px;
+            text-align: center;
+        }
+        
+        .loading1-item1,
+        .loading1-item2,
+        .loading1-item3 {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background: #4b9cdb;
+            border-radius: 15px;
+        }
+        
+        @keyframes loading1-run {
+            0% {
+                height: 16px;
+            }
+            50% {
+                height: 34px;
+            }
+            100% {
+                height: 16px;
+            }
+        }
+        /* 
+        将写好的动画添加到三个元素，两个要点：
+        一是三个元素分别设置 0s , 0.5s， 1s 的延迟
+        二是设置 infinite （动画循环播放）
+        */
+        
+        .loading1-item1 {
+            animation: loading1-run 1.5s ease 0s infinite;
+        }
+        
+        .loading1-item2 {
+            animation: loading1-run 1.5s ease 0.5s infinite;
+        }
+        
+        .loading1-item3 {
+            animation: loading1-run 1.5s ease 1s infinite;
+        }
+        
+        .loading2 {
+            position: relative;
+            width: 46px;
+            height: 46px;
+            margin: 27px auto 0 auto;
+        }
+        
+        .loading2-item1,
+        .loading2-item2,
+        .loading2-item3,
+        .loading2-item4 {
+            width: 16px;
+            height: 16px;
+            border-radius: 100%;
+            background: red;
+        }
+        /* 
+通过绝对定位，将四个元素分别定位到以四条边的中点为圆心的位置，并加上不同的颜色
+ */
+        
+        .loading2-item1 {
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            margin-left: -8px;
+            background: #CDDC39;
+        }
+        
+        .loading2-item2 {
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            margin-top: -8px;
+            background: #3F51B5;
+        }
+        
+        .loading2-item3 {
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            margin-left: -8px;
+            background: #F44336;
+        }
+        
+        .loading2-item4 {
+            position: absolute;
+            left: -8px;
+            top: 50%;
+            margin-top: -8px;
+            background: #4CAF50;
+        }
+        
+        @keyframes loading2-run {
+            0% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(90deg);
+            }
+            50% {
+                transform: rotate(180deg);
+            }
+            75% {
+                transform: rotate(270deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .loading2 {
+            position: relative;
+            width: 46px;
+            height: 46px;
+            margin: 27px auto 0 auto;
+            animation: loading2-run 2s linear 0s infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- loading1 -->
+    <div class="loading-box">
+        <div class="loading1">
+            <div class="loading1-item1"></div>
+            <div class="loading1-item2"></div>
+            <div class="loading1-item3"></div>
+        </div>
+    </div>
+
+    <!-- loading2 -->
+    <div class="loading-box">
+        <div class="loading2">
+            <div class="loading2-item1"></div>
+            <div class="loading2-item2"></div>
+            <div class="loading2-item3"></div>
+            <div class="loading2-item4"></div>
+        </div>
+    </div>
+</body>
+
+</html>
