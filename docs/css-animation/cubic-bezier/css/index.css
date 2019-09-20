@@ -1,0 +1,1352 @@
+/* CSS */
+
+body {
+    animation-timing-function: cubic-bezier(0.6, 0, 1, 1);
+}
+
+span {
+    position: absolute;
+    width: 3vmin;
+    height: 3vmin;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    margin: -1.5vmin 0 0 -1.5vmin;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: inherit;
+}
+
+span:nth-child(1) {
+    transform: rotate(3.6deg) translateX(40vmin);
+    background-color: #bf4740;
+    animation-delay: -0.16s;
+    animation-name: spin1;
+}
+
+@keyframes spin1 {
+    to {
+        transform: rotate(3.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(2) {
+    transform: rotate(7.2deg) translateX(40vmin);
+    background-color: #bf4f40;
+    animation-delay: -0.32s;
+    animation-name: spin2;
+}
+
+@keyframes spin2 {
+    to {
+        transform: rotate(7.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(3) {
+    transform: rotate(10.8deg) translateX(40vmin);
+    background-color: #bf5740;
+    animation-delay: -0.48s;
+    animation-name: spin3;
+}
+
+@keyframes spin3 {
+    to {
+        transform: rotate(10.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(4) {
+    transform: rotate(14.4deg) translateX(40vmin);
+    background-color: #bf5e40;
+    animation-delay: -0.64s;
+    animation-name: spin4;
+}
+
+@keyframes spin4 {
+    to {
+        transform: rotate(14.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(5) {
+    transform: rotate(18deg) translateX(40vmin);
+    background-color: #bf6640;
+    animation-delay: -0.8s;
+    animation-name: spin5;
+}
+
+@keyframes spin5 {
+    to {
+        transform: rotate(18deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(6) {
+    transform: rotate(21.6deg) translateX(40vmin);
+    background-color: #bf6e40;
+    animation-delay: -0.96s;
+    animation-name: spin6;
+}
+
+@keyframes spin6 {
+    to {
+        transform: rotate(21.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(7) {
+    transform: rotate(25.2deg) translateX(40vmin);
+    background-color: #bf7540;
+    animation-delay: -1.12s;
+    animation-name: spin7;
+}
+
+@keyframes spin7 {
+    to {
+        transform: rotate(25.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(8) {
+    transform: rotate(28.8deg) translateX(40vmin);
+    background-color: #bf7d40;
+    animation-delay: -1.28s;
+    animation-name: spin8;
+}
+
+@keyframes spin8 {
+    to {
+        transform: rotate(28.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(9) {
+    transform: rotate(32.4deg) translateX(40vmin);
+    background-color: #bf8540;
+    animation-delay: -1.44s;
+    animation-name: spin9;
+}
+
+@keyframes spin9 {
+    to {
+        transform: rotate(32.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(10) {
+    transform: rotate(36deg) translateX(40vmin);
+    background-color: #bf8c40;
+    animation-delay: -1.6s;
+    animation-name: spin10;
+}
+
+@keyframes spin10 {
+    to {
+        transform: rotate(36deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(11) {
+    transform: rotate(39.6deg) translateX(40vmin);
+    background-color: #bf9440;
+    animation-delay: -1.76s;
+    animation-name: spin11;
+}
+
+@keyframes spin11 {
+    to {
+        transform: rotate(39.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(12) {
+    transform: rotate(43.2deg) translateX(40vmin);
+    background-color: #bf9c40;
+    animation-delay: -1.92s;
+    animation-name: spin12;
+}
+
+@keyframes spin12 {
+    to {
+        transform: rotate(43.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(13) {
+    transform: rotate(46.8deg) translateX(40vmin);
+    background-color: #bfa340;
+    animation-delay: -2.08s;
+    animation-name: spin13;
+}
+
+@keyframes spin13 {
+    to {
+        transform: rotate(46.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(14) {
+    transform: rotate(50.4deg) translateX(40vmin);
+    background-color: #bfab40;
+    animation-delay: -2.24s;
+    animation-name: spin14;
+}
+
+@keyframes spin14 {
+    to {
+        transform: rotate(50.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(15) {
+    transform: rotate(54deg) translateX(40vmin);
+    background-color: #bfb340;
+    animation-delay: -2.4s;
+    animation-name: spin15;
+}
+
+@keyframes spin15 {
+    to {
+        transform: rotate(54deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(16) {
+    transform: rotate(57.6deg) translateX(40vmin);
+    background-color: #bfba40;
+    animation-delay: -2.56s;
+    animation-name: spin16;
+}
+
+@keyframes spin16 {
+    to {
+        transform: rotate(57.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(17) {
+    transform: rotate(61.2deg) translateX(40vmin);
+    background-color: #bdbf40;
+    animation-delay: -2.72s;
+    animation-name: spin17;
+}
+
+@keyframes spin17 {
+    to {
+        transform: rotate(61.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(18) {
+    transform: rotate(64.8deg) translateX(40vmin);
+    background-color: #b5bf40;
+    animation-delay: -2.88s;
+    animation-name: spin18;
+}
+
+@keyframes spin18 {
+    to {
+        transform: rotate(64.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(19) {
+    transform: rotate(68.4deg) translateX(40vmin);
+    background-color: #adbf40;
+    animation-delay: -3.04s;
+    animation-name: spin19;
+}
+
+@keyframes spin19 {
+    to {
+        transform: rotate(68.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(20) {
+    transform: rotate(72deg) translateX(40vmin);
+    background-color: #a6bf40;
+    animation-delay: -3.2s;
+    animation-name: spin20;
+}
+
+@keyframes spin20 {
+    to {
+        transform: rotate(72deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(21) {
+    transform: rotate(75.6deg) translateX(40vmin);
+    background-color: #9ebf40;
+    animation-delay: -3.36s;
+    animation-name: spin21;
+}
+
+@keyframes spin21 {
+    to {
+        transform: rotate(75.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(22) {
+    transform: rotate(79.2deg) translateX(40vmin);
+    background-color: #96bf40;
+    animation-delay: -3.52s;
+    animation-name: spin22;
+}
+
+@keyframes spin22 {
+    to {
+        transform: rotate(79.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(23) {
+    transform: rotate(82.8deg) translateX(40vmin);
+    background-color: #8fbf40;
+    animation-delay: -3.68s;
+    animation-name: spin23;
+}
+
+@keyframes spin23 {
+    to {
+        transform: rotate(82.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(24) {
+    transform: rotate(86.4deg) translateX(40vmin);
+    background-color: #87bf40;
+    animation-delay: -3.84s;
+    animation-name: spin24;
+}
+
+@keyframes spin24 {
+    to {
+        transform: rotate(86.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(25) {
+    transform: rotate(90deg) translateX(40vmin);
+    background-color: #80bf40;
+    animation-delay: -4s;
+    animation-name: spin25;
+}
+
+@keyframes spin25 {
+    to {
+        transform: rotate(90deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(26) {
+    transform: rotate(93.6deg) translateX(40vmin);
+    background-color: #78bf40;
+    animation-delay: -4.16s;
+    animation-name: spin26;
+}
+
+@keyframes spin26 {
+    to {
+        transform: rotate(93.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(27) {
+    transform: rotate(97.2deg) translateX(40vmin);
+    background-color: #70bf40;
+    animation-delay: -4.32s;
+    animation-name: spin27;
+}
+
+@keyframes spin27 {
+    to {
+        transform: rotate(97.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(28) {
+    transform: rotate(100.8deg) translateX(40vmin);
+    background-color: #69bf40;
+    animation-delay: -4.48s;
+    animation-name: spin28;
+}
+
+@keyframes spin28 {
+    to {
+        transform: rotate(100.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(29) {
+    transform: rotate(104.4deg) translateX(40vmin);
+    background-color: #61bf40;
+    animation-delay: -4.64s;
+    animation-name: spin29;
+}
+
+@keyframes spin29 {
+    to {
+        transform: rotate(104.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(30) {
+    transform: rotate(108deg) translateX(40vmin);
+    background-color: #59bf40;
+    animation-delay: -4.8s;
+    animation-name: spin30;
+}
+
+@keyframes spin30 {
+    to {
+        transform: rotate(108deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(31) {
+    transform: rotate(111.6deg) translateX(40vmin);
+    background-color: #52bf40;
+    animation-delay: -4.96s;
+    animation-name: spin31;
+}
+
+@keyframes spin31 {
+    to {
+        transform: rotate(111.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(32) {
+    transform: rotate(115.2deg) translateX(40vmin);
+    background-color: #4abf40;
+    animation-delay: -5.12s;
+    animation-name: spin32;
+}
+
+@keyframes spin32 {
+    to {
+        transform: rotate(115.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(33) {
+    transform: rotate(118.8deg) translateX(40vmin);
+    background-color: #42bf40;
+    animation-delay: -5.28s;
+    animation-name: spin33;
+}
+
+@keyframes spin33 {
+    to {
+        transform: rotate(118.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(34) {
+    transform: rotate(122.4deg) translateX(40vmin);
+    background-color: #40bf45;
+    animation-delay: -5.44s;
+    animation-name: spin34;
+}
+
+@keyframes spin34 {
+    to {
+        transform: rotate(122.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(35) {
+    transform: rotate(126deg) translateX(40vmin);
+    background-color: #40bf4d;
+    animation-delay: -5.6s;
+    animation-name: spin35;
+}
+
+@keyframes spin35 {
+    to {
+        transform: rotate(126deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(36) {
+    transform: rotate(129.6deg) translateX(40vmin);
+    background-color: #40bf54;
+    animation-delay: -5.76s;
+    animation-name: spin36;
+}
+
+@keyframes spin36 {
+    to {
+        transform: rotate(129.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(37) {
+    transform: rotate(133.2deg) translateX(40vmin);
+    background-color: #40bf5c;
+    animation-delay: -5.92s;
+    animation-name: spin37;
+}
+
+@keyframes spin37 {
+    to {
+        transform: rotate(133.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(38) {
+    transform: rotate(136.8deg) translateX(40vmin);
+    background-color: #40bf63;
+    animation-delay: -6.08s;
+    animation-name: spin38;
+}
+
+@keyframes spin38 {
+    to {
+        transform: rotate(136.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(39) {
+    transform: rotate(140.4deg) translateX(40vmin);
+    background-color: #40bf6b;
+    animation-delay: -6.24s;
+    animation-name: spin39;
+}
+
+@keyframes spin39 {
+    to {
+        transform: rotate(140.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(40) {
+    transform: rotate(144deg) translateX(40vmin);
+    background-color: #40bf73;
+    animation-delay: -6.4s;
+    animation-name: spin40;
+}
+
+@keyframes spin40 {
+    to {
+        transform: rotate(144deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(41) {
+    transform: rotate(147.6deg) translateX(40vmin);
+    background-color: #40bf7a;
+    animation-delay: -6.56s;
+    animation-name: spin41;
+}
+
+@keyframes spin41 {
+    to {
+        transform: rotate(147.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(42) {
+    transform: rotate(151.2deg) translateX(40vmin);
+    background-color: #40bf82;
+    animation-delay: -6.72s;
+    animation-name: spin42;
+}
+
+@keyframes spin42 {
+    to {
+        transform: rotate(151.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(43) {
+    transform: rotate(154.8deg) translateX(40vmin);
+    background-color: #40bf8a;
+    animation-delay: -6.88s;
+    animation-name: spin43;
+}
+
+@keyframes spin43 {
+    to {
+        transform: rotate(154.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(44) {
+    transform: rotate(158.4deg) translateX(40vmin);
+    background-color: #40bf91;
+    animation-delay: -7.04s;
+    animation-name: spin44;
+}
+
+@keyframes spin44 {
+    to {
+        transform: rotate(158.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(45) {
+    transform: rotate(162deg) translateX(40vmin);
+    background-color: #40bf99;
+    animation-delay: -7.2s;
+    animation-name: spin45;
+}
+
+@keyframes spin45 {
+    to {
+        transform: rotate(162deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(46) {
+    transform: rotate(165.6deg) translateX(40vmin);
+    background-color: #40bfa1;
+    animation-delay: -7.36s;
+    animation-name: spin46;
+}
+
+@keyframes spin46 {
+    to {
+        transform: rotate(165.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(47) {
+    transform: rotate(169.2deg) translateX(40vmin);
+    background-color: #40bfa8;
+    animation-delay: -7.52s;
+    animation-name: spin47;
+}
+
+@keyframes spin47 {
+    to {
+        transform: rotate(169.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(48) {
+    transform: rotate(172.8deg) translateX(40vmin);
+    background-color: #40bfb0;
+    animation-delay: -7.68s;
+    animation-name: spin48;
+}
+
+@keyframes spin48 {
+    to {
+        transform: rotate(172.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(49) {
+    transform: rotate(176.4deg) translateX(40vmin);
+    background-color: #40bfb8;
+    animation-delay: -7.84s;
+    animation-name: spin49;
+}
+
+@keyframes spin49 {
+    to {
+        transform: rotate(176.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(50) {
+    transform: rotate(180deg) translateX(40vmin);
+    background-color: #40bfbf;
+    animation-delay: -8s;
+    animation-name: spin50;
+}
+
+@keyframes spin50 {
+    to {
+        transform: rotate(180deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(51) {
+    transform: rotate(183.6deg) translateX(40vmin);
+    background-color: #40b8bf;
+    animation-delay: -8.16s;
+    animation-name: spin51;
+}
+
+@keyframes spin51 {
+    to {
+        transform: rotate(183.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(52) {
+    transform: rotate(187.2deg) translateX(40vmin);
+    background-color: #40b0bf;
+    animation-delay: -8.32s;
+    animation-name: spin52;
+}
+
+@keyframes spin52 {
+    to {
+        transform: rotate(187.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(53) {
+    transform: rotate(190.8deg) translateX(40vmin);
+    background-color: #40a8bf;
+    animation-delay: -8.48s;
+    animation-name: spin53;
+}
+
+@keyframes spin53 {
+    to {
+        transform: rotate(190.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(54) {
+    transform: rotate(194.4deg) translateX(40vmin);
+    background-color: #40a1bf;
+    animation-delay: -8.64s;
+    animation-name: spin54;
+}
+
+@keyframes spin54 {
+    to {
+        transform: rotate(194.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(55) {
+    transform: rotate(198deg) translateX(40vmin);
+    background-color: #4099bf;
+    animation-delay: -8.8s;
+    animation-name: spin55;
+}
+
+@keyframes spin55 {
+    to {
+        transform: rotate(198deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(56) {
+    transform: rotate(201.6deg) translateX(40vmin);
+    background-color: #4091bf;
+    animation-delay: -8.96s;
+    animation-name: spin56;
+}
+
+@keyframes spin56 {
+    to {
+        transform: rotate(201.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(57) {
+    transform: rotate(205.2deg) translateX(40vmin);
+    background-color: #408abf;
+    animation-delay: -9.12s;
+    animation-name: spin57;
+}
+
+@keyframes spin57 {
+    to {
+        transform: rotate(205.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(58) {
+    transform: rotate(208.8deg) translateX(40vmin);
+    background-color: #4082bf;
+    animation-delay: -9.28s;
+    animation-name: spin58;
+}
+
+@keyframes spin58 {
+    to {
+        transform: rotate(208.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(59) {
+    transform: rotate(212.4deg) translateX(40vmin);
+    background-color: #407abf;
+    animation-delay: -9.44s;
+    animation-name: spin59;
+}
+
+@keyframes spin59 {
+    to {
+        transform: rotate(212.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(60) {
+    transform: rotate(216deg) translateX(40vmin);
+    background-color: #4073bf;
+    animation-delay: -9.6s;
+    animation-name: spin60;
+}
+
+@keyframes spin60 {
+    to {
+        transform: rotate(216deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(61) {
+    transform: rotate(219.6deg) translateX(40vmin);
+    background-color: #406bbf;
+    animation-delay: -9.76s;
+    animation-name: spin61;
+}
+
+@keyframes spin61 {
+    to {
+        transform: rotate(219.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(62) {
+    transform: rotate(223.2deg) translateX(40vmin);
+    background-color: #4063bf;
+    animation-delay: -9.92s;
+    animation-name: spin62;
+}
+
+@keyframes spin62 {
+    to {
+        transform: rotate(223.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(63) {
+    transform: rotate(226.8deg) translateX(40vmin);
+    background-color: #405cbf;
+    animation-delay: -10.08s;
+    animation-name: spin63;
+}
+
+@keyframes spin63 {
+    to {
+        transform: rotate(226.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(64) {
+    transform: rotate(230.4deg) translateX(40vmin);
+    background-color: #4054bf;
+    animation-delay: -10.24s;
+    animation-name: spin64;
+}
+
+@keyframes spin64 {
+    to {
+        transform: rotate(230.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(65) {
+    transform: rotate(234deg) translateX(40vmin);
+    background-color: #404dbf;
+    animation-delay: -10.4s;
+    animation-name: spin65;
+}
+
+@keyframes spin65 {
+    to {
+        transform: rotate(234deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(66) {
+    transform: rotate(237.6deg) translateX(40vmin);
+    background-color: #4045bf;
+    animation-delay: -10.56s;
+    animation-name: spin66;
+}
+
+@keyframes spin66 {
+    to {
+        transform: rotate(237.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(67) {
+    transform: rotate(241.2deg) translateX(40vmin);
+    background-color: #4240bf;
+    animation-delay: -10.72s;
+    animation-name: spin67;
+}
+
+@keyframes spin67 {
+    to {
+        transform: rotate(241.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(68) {
+    transform: rotate(244.8deg) translateX(40vmin);
+    background-color: #4a40bf;
+    animation-delay: -10.88s;
+    animation-name: spin68;
+}
+
+@keyframes spin68 {
+    to {
+        transform: rotate(244.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(69) {
+    transform: rotate(248.4deg) translateX(40vmin);
+    background-color: #5240bf;
+    animation-delay: -11.04s;
+    animation-name: spin69;
+}
+
+@keyframes spin69 {
+    to {
+        transform: rotate(248.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(70) {
+    transform: rotate(252deg) translateX(40vmin);
+    background-color: #5940bf;
+    animation-delay: -11.2s;
+    animation-name: spin70;
+}
+
+@keyframes spin70 {
+    to {
+        transform: rotate(252deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(71) {
+    transform: rotate(255.6deg) translateX(40vmin);
+    background-color: #6140bf;
+    animation-delay: -11.36s;
+    animation-name: spin71;
+}
+
+@keyframes spin71 {
+    to {
+        transform: rotate(255.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(72) {
+    transform: rotate(259.2deg) translateX(40vmin);
+    background-color: #6940bf;
+    animation-delay: -11.52s;
+    animation-name: spin72;
+}
+
+@keyframes spin72 {
+    to {
+        transform: rotate(259.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(73) {
+    transform: rotate(262.8deg) translateX(40vmin);
+    background-color: #7040bf;
+    animation-delay: -11.68s;
+    animation-name: spin73;
+}
+
+@keyframes spin73 {
+    to {
+        transform: rotate(262.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(74) {
+    transform: rotate(266.4deg) translateX(40vmin);
+    background-color: #7840bf;
+    animation-delay: -11.84s;
+    animation-name: spin74;
+}
+
+@keyframes spin74 {
+    to {
+        transform: rotate(266.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(75) {
+    transform: rotate(270deg) translateX(40vmin);
+    background-color: #8040bf;
+    animation-delay: -12s;
+    animation-name: spin75;
+}
+
+@keyframes spin75 {
+    to {
+        transform: rotate(270deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(76) {
+    transform: rotate(273.6deg) translateX(40vmin);
+    background-color: #8740bf;
+    animation-delay: -12.16s;
+    animation-name: spin76;
+}
+
+@keyframes spin76 {
+    to {
+        transform: rotate(273.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(77) {
+    transform: rotate(277.2deg) translateX(40vmin);
+    background-color: #8f40bf;
+    animation-delay: -12.32s;
+    animation-name: spin77;
+}
+
+@keyframes spin77 {
+    to {
+        transform: rotate(277.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(78) {
+    transform: rotate(280.8deg) translateX(40vmin);
+    background-color: #9640bf;
+    animation-delay: -12.48s;
+    animation-name: spin78;
+}
+
+@keyframes spin78 {
+    to {
+        transform: rotate(280.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(79) {
+    transform: rotate(284.4deg) translateX(40vmin);
+    background-color: #9e40bf;
+    animation-delay: -12.64s;
+    animation-name: spin79;
+}
+
+@keyframes spin79 {
+    to {
+        transform: rotate(284.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(80) {
+    transform: rotate(288deg) translateX(40vmin);
+    background-color: #a640bf;
+    animation-delay: -12.8s;
+    animation-name: spin80;
+}
+
+@keyframes spin80 {
+    to {
+        transform: rotate(288deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(81) {
+    transform: rotate(291.6deg) translateX(40vmin);
+    background-color: #ad40bf;
+    animation-delay: -12.96s;
+    animation-name: spin81;
+}
+
+@keyframes spin81 {
+    to {
+        transform: rotate(291.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(82) {
+    transform: rotate(295.2deg) translateX(40vmin);
+    background-color: #b540bf;
+    animation-delay: -13.12s;
+    animation-name: spin82;
+}
+
+@keyframes spin82 {
+    to {
+        transform: rotate(295.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(83) {
+    transform: rotate(298.8deg) translateX(40vmin);
+    background-color: #bd40bf;
+    animation-delay: -13.28s;
+    animation-name: spin83;
+}
+
+@keyframes spin83 {
+    to {
+        transform: rotate(298.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(84) {
+    transform: rotate(302.4deg) translateX(40vmin);
+    background-color: #bf40ba;
+    animation-delay: -13.44s;
+    animation-name: spin84;
+}
+
+@keyframes spin84 {
+    to {
+        transform: rotate(302.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(85) {
+    transform: rotate(306deg) translateX(40vmin);
+    background-color: #bf40b3;
+    animation-delay: -13.6s;
+    animation-name: spin85;
+}
+
+@keyframes spin85 {
+    to {
+        transform: rotate(306deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(86) {
+    transform: rotate(309.6deg) translateX(40vmin);
+    background-color: #bf40ab;
+    animation-delay: -13.76s;
+    animation-name: spin86;
+}
+
+@keyframes spin86 {
+    to {
+        transform: rotate(309.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(87) {
+    transform: rotate(313.2deg) translateX(40vmin);
+    background-color: #bf40a3;
+    animation-delay: -13.92s;
+    animation-name: spin87;
+}
+
+@keyframes spin87 {
+    to {
+        transform: rotate(313.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(88) {
+    transform: rotate(316.8deg) translateX(40vmin);
+    background-color: #bf409c;
+    animation-delay: -14.08s;
+    animation-name: spin88;
+}
+
+@keyframes spin88 {
+    to {
+        transform: rotate(316.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(89) {
+    transform: rotate(320.4deg) translateX(40vmin);
+    background-color: #bf4094;
+    animation-delay: -14.24s;
+    animation-name: spin89;
+}
+
+@keyframes spin89 {
+    to {
+        transform: rotate(320.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(90) {
+    transform: rotate(324deg) translateX(40vmin);
+    background-color: #bf408c;
+    animation-delay: -14.4s;
+    animation-name: spin90;
+}
+
+@keyframes spin90 {
+    to {
+        transform: rotate(324deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(91) {
+    transform: rotate(327.6deg) translateX(40vmin);
+    background-color: #bf4085;
+    animation-delay: -14.56s;
+    animation-name: spin91;
+}
+
+@keyframes spin91 {
+    to {
+        transform: rotate(327.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(92) {
+    transform: rotate(331.2deg) translateX(40vmin);
+    background-color: #bf407d;
+    animation-delay: -14.72s;
+    animation-name: spin92;
+}
+
+@keyframes spin92 {
+    to {
+        transform: rotate(331.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(93) {
+    transform: rotate(334.8deg) translateX(40vmin);
+    background-color: #bf4075;
+    animation-delay: -14.88s;
+    animation-name: spin93;
+}
+
+@keyframes spin93 {
+    to {
+        transform: rotate(334.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(94) {
+    transform: rotate(338.4deg) translateX(40vmin);
+    background-color: #bf406e;
+    animation-delay: -15.04s;
+    animation-name: spin94;
+}
+
+@keyframes spin94 {
+    to {
+        transform: rotate(338.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(95) {
+    transform: rotate(342deg) translateX(40vmin);
+    background-color: #bf4066;
+    animation-delay: -15.2s;
+    animation-name: spin95;
+}
+
+@keyframes spin95 {
+    to {
+        transform: rotate(342deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(96) {
+    transform: rotate(345.6deg) translateX(40vmin);
+    background-color: #bf405e;
+    animation-delay: -15.36s;
+    animation-name: spin96;
+}
+
+@keyframes spin96 {
+    to {
+        transform: rotate(345.6deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(97) {
+    transform: rotate(349.2deg) translateX(40vmin);
+    background-color: #bf4057;
+    animation-delay: -15.52s;
+    animation-name: spin97;
+}
+
+@keyframes spin97 {
+    to {
+        transform: rotate(349.2deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(98) {
+    transform: rotate(352.8deg) translateX(40vmin);
+    background-color: #bf404f;
+    animation-delay: -15.68s;
+    animation-name: spin98;
+}
+
+@keyframes spin98 {
+    to {
+        transform: rotate(352.8deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(99) {
+    transform: rotate(356.4deg) translateX(40vmin);
+    background-color: #bf4047;
+    animation-delay: -15.84s;
+    animation-name: spin99;
+}
+
+@keyframes spin99 {
+    to {
+        transform: rotate(356.4deg) translateX(10vmin);
+    }
+}
+
+span:nth-child(100) {
+    transform: rotate(360deg) translateX(40vmin);
+    background-color: #bf4040;
+    animation-delay: -16s;
+    animation-name: spin100;
+}
+
+@keyframes spin100 {
+    to {
+        transform: rotate(360deg) translateX(10vmin);
+    }
+}
+
+form {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+}
+
+form p {
+    text-decoration: underline;
+}
+
+form label {
+    display: block;
+    margin: 10px 0;
+}
+
+form input {
+    width: 4vmin;
+    height: 4vmin;
+    border: 2px solid black;
+    background: white;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 50%;
+    background: white;
+    vertical-align: middle;
+    margin: 0;
+}
+
+form input:checked {
+    background-image: radial-gradient(circle at 50%, black, black 50%, white 50%);
+}

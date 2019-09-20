@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>三次贝塞尔曲线</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+    <form>
+        <p>animation-timing-function</p>
+        <label>
+            <i>cubic-bezier(0.6, 0, 1, 1)</i>
+            <input type="radio" name="ease" value="cubic-bezier(0.6, 0, 1, 1)" checked>
+          </label>
+        <label>
+            <i>cubic-bezier(1, 0, 0.3, 1)</i>
+            <input type="radio" name="ease" value="cubic-bezier(1, 0, 0.3, 1)">
+          </label>
+        <label>
+            <i>cubic-bezier(0, 0.7, 1, 0)</i>
+            <input type="radio" name="ease" value="cubic-bezier(0, 0.7, 1, 0)">
+          </label>
+        <label>
+            <i>cubic-bezier(0, 1, 1, 0.9)</i>
+            <input type="radio" name="ease" value="cubic-bezier(0, 1, 1, 0.9)">
+          </label>
+    </form>
+</body>
+
+<script>
+    const elInputs = document.querySelectorAll('input');
+    elInputs.forEach((elInput) => {
+        elInput.addEventListener('change', onChange);
+    });
+
+    function onChange() {
+        document.body.style.animationTimingFunction = this.value;
+    }
+</script>
+
+</html>

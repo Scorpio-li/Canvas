@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS 相册</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        body {
+            background-color: black;
+        }
+        
+        .wrap {
+            perspective: 1600px;
+        }
+        
+        #photos {
+            width: 300px;
+            height: 300px;
+            margin: 200px auto;
+            transform-style: preserve-3d;
+            transition: all .5s ease;
+            animation: spin 20s linear infinite;
+        }
+        
+        img {
+            width: 250px;
+            height: 300px;
+            margin-bottom: 100px;
+            position: absolute;
+            border: 1px solid gray;
+            border-radius: 20px;
+            opacity: 0.8;
+        }
+        
+        @keyframes spin {
+            from {
+                transform: rotateY(0);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div id="photos">
+            <img class="pic1" src="http://img3.imgtn.bdimg.com/it/u=1986179278,1118313821&fm=26&gp=0.jpg" alt="">
+            <img class="pic2" src="http://img3.imgtn.bdimg.com/it/u=1055727654,337004439&fm=26&gp=0.jpg" alt="">
+            <img class="pic3" src="http://img4.imgtn.bdimg.com/it/u=2153937626,1074119156&fm=26&gp=0.jpg" alt="">
+            <img class="pic4" src="http://img2.imgtn.bdimg.com/it/u=1451330793,2242997567&fm=26&gp=0.jpg" alt="">
+            <img class="pic5" src="http://img0.imgtn.bdimg.com/it/u=123807196,3598291508&fm=26&gp=0.jpg" alt="">
+            <img class="pic6" src="http://img3.imgtn.bdimg.com/it/u=2900399529,4095081466&fm=26&gp=0.jpg" alt="">
+        </div>
+    </div>
+
+</body>
+<script>
+    var phoArr = document.getElementById("photos");
+    var phoNum = phoArr.getElementsByTagName("img");
+    var phoLen = phoNum.length;
+    var ang = Math.floor(360 / phoLen);
+    for (var i = 0; i < phoLen; i++) {
+        // phoNum[i].style = 'transform : rotateY(' + ang*i + 'deg) ';
+        phoNum[i].style = 'transform : rotateY(' + ang * i + 'deg) translateZ(300px) ';
+    }
+</script>
+
+</html>

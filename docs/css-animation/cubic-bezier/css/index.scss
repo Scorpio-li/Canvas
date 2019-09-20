@@ -1,0 +1,63 @@
+/* SCSS */
+
+$size: 3vmin;
+body {
+    animation-timing-function: cubic-bezier(0.6, 0, 1, 1);
+}
+
+span {
+    position: absolute;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    margin: ($size * -0.5) 0 0 ($size * -0.5);
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: inherit;
+    $amount: 100;
+    @for $i from 1 through $amount {
+        &:nth-child(#{$i}) {
+            transform: rotate(($i/$amount) * 360deg) translateX(40vmin);
+            background-color: hsl(($i / $amount) * 360, 50%, 50%);
+            animation-delay: ($i/$amount) * -16s;
+            animation-name: spin#{$i};
+        }
+        @keyframes spin#{$i} {
+            to {
+                transform: rotate(($i/$amount) * 360deg) translateX(10vmin);
+            }
+        }
+    }
+}
+
+form {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    p {
+        text-decoration: underline;
+    }
+    label {
+        display: block;
+        margin: 10px 0;
+    }
+    input {
+        width: 4vmin;
+        height: 4vmin;
+        border: 2px solid black;
+        background: white;
+        -webkit-appearance: none;
+        appearance: none;
+        border-radius: 50%;
+        background: white;
+        vertical-align: middle;
+        margin: 0;
+        &:checked {
+            background-image: radial-gradient(circle at 50%, black, black 50%, white 50%);
+        }
+    }
+}
