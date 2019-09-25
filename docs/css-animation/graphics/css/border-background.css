@@ -1,0 +1,32 @@
+/* 半透明边框 */
+
+.transparent-border {
+    width: 100px;
+    height: 100px;
+    border: 10px solid rgba(0, 0, 0, 0.2);
+    background-color: blue;
+    /* border-box | padding-box */
+    background-clip: padding-box;
+}
+
+
+/* 多重边框 */
+
+.multiple-border {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    box-shadow: 0 0 0 5px #655, 0 0 0 10px deeppink;
+    border-radius: 5px;
+}
+
+
+/* 条纹背景 */
+
+.striped-background {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(#fb3 33.3%, #58a 0, #58a 66.6%, yellowgreen 0);
+    background-size: 100% 45px;
+    margin: 20px;
+}
