@@ -19,3 +19,4 @@
 ### 1. loading动画
 ### 2. heart图形
 ### 3. weather图形
+### 4. rolling滚动动画
