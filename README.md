@@ -14,6 +14,8 @@
 
 ### 2. canvas绘制进度盘
 
+### 3. 头像加国旗
+
 ## css-animation
 
 ### 1. loading动画

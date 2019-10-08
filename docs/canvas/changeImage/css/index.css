@@ -1,0 +1,34 @@
+.save-btn,
+.input-container {
+    border: none;
+    box-shadow: none;
+    width: 150px;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    text-align: center;
+    color: #fff;
+    background-color: blue;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.save-btn {
+    background-color: #67c23a;
+}
+
+.input-container {
+    background-color: #409eff;
+    position: relative;
+}
+
+.file-input {
+    cursor: pointer;
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
