@@ -1,0 +1,65 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    // radial-gradient生成渐变背景
+	background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  	overflow: hidden;
+    height: 100%;
+}
+
+// 浏览器宽度
+@windowWidth: 2000;
+
+// less循环实现生成星星
+/*
+.mixin(@n) when(@n > 0) 是less里面的函数，意思是定义了一个mixin函数
+@n是传入函数的变量
+when(@n > 0) 意思是当变量的值@n > 0的时候，这个函数才会执行
+.mixin((@n - 1))这是递归调用
+*/
+.mixin(@n) when(@n > 0) {
+    // 在less里面写JS表达式: 用~开头，然后``包裹表达式
+    box-shadow+ : ~`Math.round(Math.random() *  @{windowWidth}) + 'px' + ' ' +Math.round(Math.random() *  @{windowWidth}) + 'px #FFF' `;
+    .mixin((@n - 1)); //递归调用自身
+  } 
+#start1 {
+	.mixin(700);
+	width: 1px;
+  height: 1px;
+  animation	: animStar 50s linear infinite;
+  animation-delay:-10s;
+}
+#start2 {
+	.mixin(200);
+	width: 2px;
+  height: 2px;
+  animation	: animStar 100s linear infinite;
+  animation-delay:-8s;
+}
+#start3 {
+	.mixin(100);
+	width: 3px;
+  height: 3px;
+  animation	: animStar 150s linear infinite;
+  animation-delay:-5s;
+}
+
+#title {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: rgba(255,255,255,0.4);
+	font-family: courier;
+	font-size: 102px;
+}
+
+@keyframes animStar {
+	from { transform: translateY(0px) }
+	to { transform: translateY(-2000px) }
+}
+  
