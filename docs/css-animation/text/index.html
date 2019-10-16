@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文字</title>
+    <link rel="stylesheet" href="./css/roll.css">
+    <link rel="stylesheet" href="./css/underLine.css">
+</head>
+
+<body>
+    <!-- 文字滚动 -->
+    <div class="roll">
+        <p>我是一段很长的很长的很长很长的很长的很长的文字。</p>
+        <p>我是一段很长的很长的很长的文字。</p>
+        <p>我是文字。</p>
+    </div>
+
+    <!-- 光标下划线 -->
+    <ul class="underLine">
+        <li>不可思议的CSS</li>
+        <li>导航栏</li>
+        <li>光标下划线跟随</li>
+        <li>PURE CSS</li>
+        <li>Coco</li>
+    </ul>
+</body>
+<script>
+    [...document.querySelectorAll('p')].forEach(p => {
+        p.style.setProperty('--duration', p.offsetWidth / 100 + 's');
+    })
+</script>
+
+</html>
