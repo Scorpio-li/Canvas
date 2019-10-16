@@ -1,0 +1,13 @@
+.scale {
+    transform: scale(1);
+    animation: scale 10s infinite linear;
+}
+
+@keyframes scale {
+    50% {
+        transform: scale(-1);
+    }
+    100% {
+        transform: scale(-1);
+    }
+}
