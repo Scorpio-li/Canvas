@@ -1,0 +1,58 @@
+.hr {
+    width: 300px;
+    background-color: #000;
+}
+
+.hr.half-px {
+    height: 0.5px;
+}
+
+.hr.one-px {
+    height: 1px;
+}
+
+
+/* 通过transform: scale会导致Chrome变虚，需要通过transform-origin: 50% 100% */
+
+
+/* 方法一 */
+
+.hr.scale-half {
+    height: 1px;
+    transform: scaleY(0.5);
+    transform-origin: 50% 100%;
+}
+
+
+/* 方法二：渐变的角度从下往上，从白色#fff渐变到黑色#000，而且是线性的，在高清屏上，1px的逻辑像素代表的物理（设备）像素有2px，由于是线性渐变，所以第1个px只能是#fff，而剩下的那个像素只能是#000，这样就达到了画一半的目的。 */
+
+.hr.gradient {
+    height: 1px;
+    background: linear-gradient(0deg, #fff, #000);
+}
+
+
+/* 方法三：box-shadow ——》Safari不支持小于1px的boxshadow*/
+
+.hr.boxshadow {
+    height: 1px;
+    background: none;
+    box-shadow: 0 0.5px 0 #000;
+}
+
+
+/* 方法四：svg */
+
+.hr.svg {
+    background: none;
+    height: 1px;
+    background: url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke='#000'></line></svg>");
+}
+
+
+/* firefox的background-image如果是svg的话只支持命名的颜色，如"black"、"red"等，如果把上面代码的svg里面的#000改成black的话就可以显示出来，但是这样就很不灵活了。否则只能把svg转成base64的形式 */
+
+.hr.svg {
+    background: url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke='#000'></line></svg>");
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMDAlJyBoZWlnaHQ9JzFweCc+PGxpbmUgeDE9JzAnIHkxPScwJyB4Mj0nMTAwJScgeTI9JzAnIHN0cm9rZT0nIzAwMCc+PC9saW5lPjwvc3ZnPg==");
+}
