@@ -10,6 +10,54 @@
 }
 
 
+/* 三角 */
+
+#cssTest {
+    /* float: left; */
+    width: 200px;
+    height: 96px;
+    border: 2px solid red;
+    position: relative;
+    left: 20px;
+    top: 20px;
+}
+
+#cssTest:before {
+    content: "";
+    /* border: 20px solid red;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    left: 202px;
+    top: 0px; */
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-left: 100px solid red;
+    border-bottom: 50px solid transparent;
+    position: absolute;
+    left: 202px;
+    top: -2px;
+}
+
+
+/* #cssTest:after {
+    content: "";
+    border: 19px solid #fff;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    left: 200px;
+    top: 1px;
+} */
+
+
 /* 平行四边形 */
 
 .button1 {
