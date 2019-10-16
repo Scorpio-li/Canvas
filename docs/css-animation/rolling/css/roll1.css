@@ -1,0 +1,60 @@
+.roll {
+    margin: 100px auto;
+    width: 200px;
+    height: 40px;
+    overflow: hidden;
+    border: 1px solid aquamarine;
+}
+
+.roll ul {
+    list-style: none;
+}
+
+.roll li {
+    line-height: 20px;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+/* 方案2 */
+
+
+/*这里不做兼容性处理*/
+
+.roll2 ul {
+    list-style: none;
+    animation: ani 5s linear infinite;
+    /*动画ani，5s，循环匀速播放*/
+}
+
+@keyframes ani {
+    0% {
+        margin-top: 0;
+    }
+    12.5% {
+        margin-top: 0;
+    }
+    25% {
+        margin-top: -40px;
+    }
+    37.5% {
+        margin-top: -40px;
+    }
+    50% {
+        margin-top: -80px;
+    }
+    62.5% {
+        margin-top: -80px;
+    }
+    75% {
+        margin-top: -120px;
+    }
+    87.5% {
+        margin-top: -120px;
+    }
+    100% {
+        margin-top: -160px;
+        /*最后是一个，这样可以打断动画*/
+    }
+}
