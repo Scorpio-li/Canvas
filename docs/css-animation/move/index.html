@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>move</title>
+</head>
+
+<body>
+    <div id="demo" style="position:absolute; width:100px; height:100px; background:#ccc; left:0; top:0;"></div>
+
+</body>
+
+<script>
+    var demo = document.getElementById('demo');
+
+    function render() {
+        demo.style.left = parseInt(demo.style.left) + 1 + 'px'; //每一帧向右移动1px
+    }
+    requestAnimationFrame(function() {
+        render();
+        //当超过300px后才停止
+        if (parseInt(demo.style.left) <= 300) {
+            requestAnimationFrame(arguments.callee);
+        }
+    });
+</script>
+
+</html>
