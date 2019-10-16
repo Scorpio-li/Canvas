@@ -24,3 +24,4 @@
 ### 4. rolling滚动动画
 ### 5. star-sky星空
 ### 6. bubbles-background css气泡背景图
+### 7. twill-animation css斜纹动画

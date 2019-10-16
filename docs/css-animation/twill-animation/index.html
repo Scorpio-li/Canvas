@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css斜纹动画</title>
+    <style>
+        .cont {
+            margin: 200px auto;
+            width: 400px;
+            background: rgb(255, 208, 40);
+            display: flex;
+            height: 100px;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes move {
+            0% {
+                left: 0px;
+            }
+            100% {
+                left: 45px;
+            }
+        }
+        
+        .twill {
+            width: 20px;
+            height: 2000px;
+            background: skyblue;
+            position: absolute;
+            left: 0px;
+            top: -500px;
+            transform: rotateZ(30deg);
+            transform-origin: top left;
+            box-shadow: 40px 0px 1px 1px rgba(255, 255, 255, 0.6), 80px 0px 1px 1px rgba(255, 255, 255, 0.6), 120px 0px 1px 1px rgba(255, 255, 255, 0.6), 160px 0px 1px 1px rgba(255, 255, 255, 0.6), 200px 0px 1px 1px rgba(255, 255, 255, 0.6), 240px 0px 1px 1px rgba(255, 255, 255, 0.6), 280px 0px 1px 1px rgba(255, 255, 255, 0.6), 320px 0px 1px 1px rgba(255, 255, 255, 0.6), 360px 0px 1px 1px rgba(255, 255, 255, 0.6), 400px 0px 1px 1px rgba(255, 255, 255, 0.6), 440px 0px 1px 1px rgba(255, 255, 255, 0.6), 480px 0px 1px 1px rgba(255, 255, 255, 0.6), 520px 0px 1px 1px rgba(255, 255, 255, 0.6), 560px 0px 1px 1px rgba(255, 255, 255, 0.6), 600px 0px 1px 1px rgba(255, 255, 255, 0.6), 640px 0px 1px 1px rgba(255, 255, 255, 0.6);
+            animation: move 1s linear infinite;
+        }
+        
+        .btn {
+            padding: 10px;
+            border-radius: 20px;
+            width: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            font-weight: bolder;
+            background: rgba(255, 255, 255, .6);
+            z-index: 999;
+            cursor: pointer;
+            transition: background 0.5s;
+            &:hover {
+                background: rgba(255, 255, 255, 1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <body>
+        <div class="cont">
+            <div class="twill"></div>
+            <div class="btn">查看详情</div>
+        </div>
+    </body>
+
+</body>
+
+</html>
