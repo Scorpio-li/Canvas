@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   	<meta charset="utf-8">
+	<title>document</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+	ul {
+		width: 520px;
+		margin:50px auto;
+	}
+	li {
+		width: 50px;
+		height: 50px;
+		border:1px solid red ;
+		border-radius: 50%;
+		background-color: #ccc;
+		float: left;
+	}
+	.active {
+		background: red;
+	}
+
+	</style>
+	<script>
+	window.onload = function(){
+
+		var oUl = document.getElementById('ul');
+		var oLi = oUl.getElementsByTagName('li');
+
+		for (var i = 0; i < oLi.length; i++) {
+			oLi[i].index=i;
+		var num = 0 ;
+		var iNow = -1;
+		 oLi[i].onmouseover = function(){
+		 	num = this.index;
+		 	for (var i = 0; i <= num; i++) {
+		 		oLi[i].className = 'active';
+		 	}
+		 };
+		 oLi[i].onmouseout = function(){
+		 	num = iNow;
+		 	for (var i = 0; i <oLi.length; i++) {
+		 		oLi[i].className = '';
+		 	}
+		 	for (var i = 0; i <= num; i++) {
+		 		oLi[i].className = 'active';
+		 	}
+		 };
+		 oLi[i].onclick = function(){
+		 	num = iNow = this.index;
+		 	for (var i = 0; i <= num; i++) {
+		 		oLi[i].className = 'active';
+		 	}
+		 };
+
+		}
+	}
+	</script>
+</head>
+<body>
+<ul id="ul">
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+</body>
+</html>

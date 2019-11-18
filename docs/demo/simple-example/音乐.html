@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<title>Document</title>
+	<style>
+        ul{
+        	width:400px;
+			margin:30px auto;
+        }
+        li{
+        	height: 50px;
+        	/*background: #ccc;*/
+        	border: 1px solid #fff;
+        	line-height: 50px;
+        	padding-left: 10px;
+        	position: relative;
+            cursor: pointer;
+        }
+        ul li strong{
+        	position: absolute;
+        	left: 300px;
+            cursor: pointer;
+        }
+        p{
+        	width: 400px;
+        	margin: 0px auto;
+            cursor: pointer;
+        }
+        p input{
+        	margin-right: 10px;
+            cursor: pointer;
+        }
+        p em{
+        	border: 1px solid #ccc;
+        	margin-left: 30px;
+            cursor: pointer;
+        }
+
+	</style>
+	<script>
+		window.onload = function(){
+			var oUl = document.getElementsByTagName('ul')[0];
+			var oLi = oUl.getElementsByTagName('li');
+			var oInp = oUl.getElementsByTagName('input');
+			var oP = document.getElementsByTagName('p')[0];
+			var oPut = oP.getElementsByTagName('input');
+			var oEm = oP.getElementsByTagName('em');
+
+			for (var i = 0; i < oLi.length; i++) {
+
+				oLi[i].index = i;
+				// if (i%2==0) {
+				// 	oLi[i].style.backgroundColor ='#efefef'; 
+				// }else{
+				// 	oLi[i].style.backgroundColor = 'red';
+				// }
+				oLi[i].onmouseover = function(){
+					oLi[this.index].style.backgroundColor = 'yellow';
+			    }
+			    oLi[i].onmouseout = function(){
+			    	oLi[this.index].style.backgroundColor= '';
+			    }
+
+			}
+			for (var i = 0; i <6; i++) {
+				
+			
+				oPut[0].onclick = function(){
+						if(oPut[0].checked == true){
+						for(var i=0; i<oInp.length; i++){
+							oInp[i].checked = true;
+						} 
+					}else{
+						for(var i=0; i<oInp.length; i++){
+							oInp[i].checked = false;
+						} 
+					}
+				}
+			for (var i = 0; i < oLi.length; i++) {
+                oLi[i].onclick=function(){
+                    var num = 0;
+                    for (var j = 0; j < oInp.length; j++) {
+                        if (oInp[j].checked == true){
+                            num = num+1;
+                        }
+                        if (num == oInp.length){
+                            oPut[0].checked = true;
+                        }else{
+                            oPut[0].checked = false;
+                        }
+                    }
+                }
+            }
+			}
+
+		}
+	</script>
+</head>
+<body>
+    <ul>
+    	<li>
+    		<input type="checkbox">
+    		<em>过火</em>
+    		<strong>成龙</strong>
+    	</li>
+    	<li>
+            <input type="checkbox">
+            <em>过火</em>
+            <strong>成龙</strong>
+        </li>
+    	<li>
+            <input type="checkbox">
+            <em>过火</em>
+            <strong>成龙</strong>
+        </li>
+    	<li>
+            <input type="checkbox">
+            <em>过火</em>
+            <strong>成龙</strong>
+        </li>
+    	<li>
+            <input type="checkbox">
+            <em>过火</em>
+            <strong>成龙</strong>
+        </li>
+    	<li>
+            <input type="checkbox">
+            <em>过火</em>
+            <strong>成龙</strong>
+        </li>
+    </ul>
+    <p>
+    	<input type="checkbox">全选
+    	<em>收藏</em>
+    	<em>＋添加</em>
+    	<em>×删除</em>	
+    </p>
+</body>
+</html>

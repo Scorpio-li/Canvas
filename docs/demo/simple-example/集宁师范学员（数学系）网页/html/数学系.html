@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/animate.css">
+	<style>
+	body{
+	font-size:12px;
+	color:#000000;
+	text-align: center;
+
+	}
+	#head{
+		width:52%;
+		height:120px;
+		text-align: center;
+		margin:10px auto;
+	}
+	
+	@media screen and (max-width: 1200px){
+			#head{
+				height:90px;
+			}
+		}
+		@media screen and (max-width: 800px){
+			#head{
+				height:60px;
+			}
+		}
+		@media screen and (max-width: 760px){
+			#head{
+				width:100%;
+				height:80px;
+			}
+		}
+	#head img{
+		width:100%;
+		height:100%;
+		/*height:100%;*/
+	}
+	/*顶部图片  加响应式*/ 
+	.nav{
+		width:52%;
+		/*height:35px;*/
+		text-align: center;
+		margin:0px auto;
+	}
+	/*导航区域*/
+	.nav li{
+		margin-top: 10px;
+		width: 74px;
+		height:14px;
+		font-size: 14px;
+		margin-top:7px;
+		margin-bottom:10px;
+		border-right:1px solid #ccc;
+		display: inline-block;
+		text-align: center;
+		/*float: left;*/
+		padding-left: 5px;
+		padding-right: 5px;
+		cursor: pointer;
+
+	}
+	.nav li a{
+		display:block;
+		line-height: 14px;
+	}
+	.nav li span{
+		display:block;
+		line-height: 14px;
+		font-size: 14px;
+		position: relative;
+		
+	}
+	.nav li a:hover{
+		color: blue;
+	}
+	.nav li span:hover{
+		color: blue;
+
+	}
+
+    .menu{
+	   /* height: 60px;*/
+	    border:1px solid #000;
+	    background: #cbcbcb;
+	    display: none;
+	    line-height: 20px;
+	    position: absolute;
+    }
+	.menu a{
+		display: block;
+		background: #cbcbcb;
+		opacity: 0.9;
+		font-size: 15px;
+		line-height:20px;
+		color: #000;
+		padding-top: 4px;
+	}
+	.nav li:hover div{
+		display: block;
+	}
+	/*导航栏用了  hover*/
+	.mark{
+		width:52%;
+		height:200px; 
+		background:url("../img/logo.png"); 
+		background-repeat: no-repeat;
+		margin:0px auto;
+		background-size: 100% 100%;
+	}
+
+	.introduce{
+		padding-top: 5px;
+		width:51.7%;
+		height:250px;
+		margin:0px auto;
+		border:4px solid #c5cfaf;
+		position: relative;
+		line-height: 250px;
+		text-align: center;
+	}
+	.introduce p{
+		padding-top:6px;
+		font-size:20px;
+		line-height:30px;
+		overflow: scroll;
+		width:64%;
+		height:96%;
+		display:inline-block;
+		position: absolute;
+		left: 0px;
+		top:6px;
+		background: url("../img/word.jpg");
+		background-size: 100% 100%;
+	}
+	.pic{
+		width:35%;
+		height:90%;
+		padding-top:5px;
+		border: 4px solid #81c263; 
+		display:block;
+		position: absolute;
+		right:0px;
+		top:5px;
+
+	}
+
+	.pic li{
+		border:2px solid #81c263;
+		background-size:100% 100%;
+		width:90%;
+		height:90%;
+		margin:5px auto;
+		background:url("../img/8.jpg") no-repeat;
+
+	}
+	.content{
+		width:52%;
+		height:250px;
+		/*border:1px solid red;*/
+		margin: 20px auto;
+		display: block;
+		position: relative;
+	}
+	.content li{
+		width:32%;
+		/*height:245px;*/
+		float:left;
+		margin-right:5px;
+		border:1px solid #ccc;
+		position: relative;
+	}
+	@media screen and (max-width: 1780px){
+			.content{
+				width:55%;
+			}
+		}
+		@media screen and (max-width: 1700px){
+			.content{
+				width:60%;
+			}
+		}
+		@media screen and (max-width: 1552px){
+			.content{
+				width:65%;
+			}
+		}
+		@media screen and (max-width: 1428px){
+			.content{
+				width:70%;
+			}
+		}
+		@media screen and (max-width: 1330px){
+			.content{
+				width:75%;
+			}
+		}
+		@media screen and (max-width: 1335px){
+			.content{
+				width:80%;
+			}
+		}
+		@media screen and (max-width: 1258px){
+			.content{
+				width:85%;
+			}
+		}
+		@media screen and (max-width: 1092px){
+			.content{
+				width:90%;
+			}
+		}
+		@media screen and (max-width: 1033px){
+			.content li{
+				width:50%;
+				margin-left:25%;
+			}
+		}
+	.content strong{
+		font-size:15px;
+		line-height:30px;
+		float: left;
+		padding-left: 30px;
+		cursor:pointer;
+	}
+	.content a{
+		font-size: 10px;
+		line-height:30px;
+		color:green;
+		float: right;
+		padding-right:15px;
+		cursor:pointer;
+		overflow: hidden;
+	}
+	.top{
+		width:100%;
+		height:30px;
+		background-color:#f7f7f7;
+		margin-bottom:6px;
+	}
+    .Ipt{
+    	width:100%;
+    	height:26px;
+    	font-size:12px;
+    	line-height:26px;
+    	position: relative;
+    }
+    .Ipt span{
+    	font-size:8px;
+    	color:blue;
+    	float: right;
+    	position: absolute;
+    	right: 10px;
+    	top:3px;
+    }
+    .Ipt img{
+    	position: absolute;
+    	left:5px;
+    	top:10px;
+    }
+    .Ipt a{
+    	position: absolute;
+    	color:#000;
+    	left: 16px;
+    	top:0px;
+    }
+    .top3{
+    	width:100%;
+		height:30px;
+		background-color:#f7f7f7;
+    }
+    #show{
+    	width: 100%;
+    	height: 215px;
+    	position: relative;
+    	
+    }
+    #show img{
+    	width:100%;
+    	height: 100%;
+ 		position: absolute;
+ 		left: 0px;
+ 		top:0px;
+
+    }
+    #abc span{
+    	width: 30px;
+    	background: #ccc;
+    	line-height: 20px;
+    	border: 1px solid #fff;
+    	opacity:0.7;
+    	position: absolute;
+    	top:40%;
+    	text-align: center;
+    	border-radius:5px;
+    	color: #000;
+    	padding:0px;
+    }
+    #abc a:hover{
+    	opacity:0.5;
+    }
+    #abc span:nth-of-type(1){
+    	left:5px;
+    }
+    #abc span:nth-of-type(2){
+    	right:5px;
+    }
+    #show img.prev { left: -100%; }
+	#show img.next { left: 100%; top: 0; }
+	#show img.current { left: 0; }
+    #news{
+    	width: 100%;
+    	height:20px;
+    	position: absolute;
+    	left: 0px;
+    	bottom:5px;
+/*    	background: #ccc;*/
+    	/*opacity:0.3;*/
+    }
+   #news li{
+    	width: 9px;
+    	height:9px;
+    	font-size: 15px;
+    	text-align: center;
+    	margin-left: 12px;
+    	display: inline-block;
+    	border:1px solid #434343;
+    	cursor: pointer;
+    	border-radius: 50%;
+    	background: blue;
+    }
+    #news li:hover{
+    	/*border:1px solid #ccc;*/
+    	opacity:1;
+    	background-color:#ccc;
+    	color: blue;
+    }
+    #abc{
+    	width: 100%;
+    	height: 215px;
+    	position: relative;
+    	overflow: hidden; 
+
+    }
+    #news li.active{
+    	opacity:1;
+    	background-color:#ccc;
+    	color: blue;
+
+    }
+    #foot{
+    	width:1000px;
+    	height: 125px;
+		border: 2px solid #ccc; 
+		margin:10px auto;
+		position: relative;
+		overflow:hidden;
+    }
+    #box1{
+    	width:1000px;
+    	height:125px;
+    	position: absolute;
+    	left: 0px;
+    	top:0px;
+    }
+    #box2{
+    	width:1000px;
+    	height:125px;
+    	position: absolute;
+    	left: 1000px;
+    	top:0px;
+    	background-color: #ccc;
+
+    }
+    #foot a{
+    	float: left;
+    	width:121px;
+    	height: 121px;
+    	border: 2px solid #ccc;
+    }
+    #foot a img{
+    	width:121px;
+    	height: 121px;
+
+    }
+    #guestbook{
+			width:600px;
+			height:1000px;
+			margin:0px auto;
+			padding:10px;
+			position: relative;
+	}
+	
+	#guestbook textarea{
+		width:98%;
+		height:80px;
+		border-radius:3px;
+		border:2px solid #ccc;
+		font-size: 15px;
+		color:#bfbcbd;
+		padding:5px;
+		margin-bottom:3px;
+		
+	}
+	#guestbook input {
+		width:70px;
+		height:32px;
+		background:rgba(168,182,180,0.3);
+		border-radius: 3px;
+		border:1px solid #cdcdcf;
+		font-size:13px;
+		color:#888;
+	}
+	#guestbook #div1{
+		width:95%;
+		height:800px;
+		border-radius:8px;
+		border:1px solid #ccc;
+		margin-top:10px;
+		padding:2px 15px;
+		background:rgba(180,192,254,0.2);
+		overflow:auto;
+	}
+	#guestbook #div1 div p{
+		/*font-size:17px;
+		padding:10px 0px;*/
+		line-height:22px;
+		color:rgba(70,70,70,0.8);
+		/*word-break:break-all; */
+		text-indent:20px; 
+		margin-bottom:10px;
+		padding-left:40px;
+		padding-top:25px;
+		
+
+		/*border-bottom: 1px dashed #0a04ff;*/
+	}
+	#guestbook #div1  img{
+		width:45px;
+		height:45px;
+		position:absolute;
+		left:0px;
+		border-radius: 50%;
+		/*float: left;*/
+
+	}
+	#guestbook #div1 div{
+		width:100%;
+		font-size:15px;
+		padding:5px 0px;
+		margin-bottom:10px;
+		position:relative;
+		border-bottom: 1px dashed #7f9dff;
+
+	}
+	#guestbook #div1 div span{
+		font-size:15px;
+		margin-left:340px; 
+		margin-right:5px;
+		color:#ccc;
+	}
+	#guestbook #div1 div em{
+		font-size:15px;
+		color:#ccc;
+		
+	}
+	#guestbook #div1 div a{
+		font-size: 15px;
+		margin-left:10px;
+		color:#888;
+		right:20px;
+		top:10px;
+	}
+	#guestbook #div1 div b{
+		margin-left:23px;
+		font-size:16px;
+		color:#0a045b;
+		
+	}
+	#guestbook #div1 div textarea{
+		width:95%;
+		margin-top: 5px;
+		height:50px;
+		border:1px solid #ccc9fc;
+		font-size:15px;
+		background:#f5f4fe;
+	}
+	#guestbook #div1 div input{
+		width:50px;
+		height:20px;
+		text-align: center;
+		color:#888;
+
+		
+	}
+	#guestbook #div1 div section{
+		line-height:22px;
+		color:rgba(70,70,70,0.8);
+		word-break:break-all; 
+		text-indent:18px; 
+		padding-left: 10px;
+		padding-top:5px;
+		margin-top:20px;
+		border-top: 1px dashed #ccc;
+	}
+	#guestbook #div1 div section img{
+		width:40px;
+		height:40px;
+	}
+	#guestbook #div1 div section span{
+		margin-left:400px;
+	}
+
+	</style>
+</head>
+<body>
+<div id="head">
+	<div class="animated shake">
+		<img src="../img/head.png" alt="jiningshifuan">
+	</div>
+</div>
+
+
+<ul class="nav clear">
+	<li>
+		<a href="#" >学院首页</a>
+	</li>
+	<li>
+		<span>系概况</span>
+		<div class="menu">
+			<a href="#">系简介</a>
+			<a href="#">机构设置</a>
+			<a href="#">师资队伍</a>
+		</div>
+	</li>
+	<li>
+		<a href="#">学科建设</a>
+	</li>
+	<li>
+		<a href="#">科研成果</a>
+	</li>
+	<li>
+		<a href="#">规章制度</a>
+	</li>
+	<li>
+		<span>教研室</span>
+		<div class="menu">
+			<a href="#">函数论</a>
+			<a href="#">高等代数</a>
+			<a href="#">大学数学</a>
+			<a href="#">学科论</a>
+			<a href="#">数学分析</a>
+			<a href="#">数据库</a>
+			<a href="#">信息与计算科学</a>
+		</div>
+	</li>
+	<li>
+		<span >学生工作</span>
+		<div class="menu">
+		<a href="#">就业工作</a>
+		<a href="#">毕业生信息</a>
+		<a href="#">社团活动</a>
+		<a href="#">贫困生工作</a>
+		<a href="#">评优评奖</a>
+		<a href="#">考勤管理</a>
+		<a href="#">学生刊物</a>
+		</div>
+	</li>
+	<li>
+		<a href="#">教学学会</a>
+	</li>
+	<li>
+		<a href="#">党建工作</a>
+	</li>
+	<li>
+		<a href="#">精品课程</a>
+	</li>
+	<li>
+		<a href="#">下载专区</a>
+	</li>
+</ul>
+
+<div class="mark"></div>
+<div class="introduce">
+	<p><strong>数学系简介：</strong>
+	1977年9月成立乌盟师范学校大专班，并于当年招收第一届大专生，1983年在原大专班理科组的基础上成立乌盟教育学院数学系,1985年更名为乌盟师专数学系，1995年更名为集宁师范高等学校数学系，2009学校晋升本科，更名为集宁师范学院数学系。1992年开始招收三年制专科生,2009开始招收四年制本科生，是学校建系最早、发展最快的教学系之一。
+数学系现有数学与应用数学、信息与计算科学两个本科专业；数学教育专科专业，现有592名在校生，教职工25名，专兼职教师31名，其中“双师”型教师7名，高级职称10人，博士1人，硕士16名，在读博士1人。现有函数论、学科教学论、信息与计算科学、代数与几何、大学数学等5个教研室。
+数学系已为内蒙古自治区内外和乌兰察布市培养了3100多名合格人才，其中大多数已成为自治区和乌兰察布市数学教学的主干力量。以我系学生为主的大学生数学建模代表队每年参加全国大学生数学建模比赛，2004、2005年连续两年获全国二等奖及多项赛区奖；2008、2009年连续两年获全国一等奖及多项赛区奖（乙组）；2011年到2014年均获得赛区一等奖（甲组）两次，赛区二等奖（甲组）两次，多个成功参赛奖（甲组）。2013年、2014年我系数学与应用数学专业毕业生有19人考取内蒙古大学、内蒙古师范大学、内蒙古工业大学等学校硕士研究生。
+我系还与区内外高校建立了良好的学术交流往来关系，聘请复旦大学数学科学学院教授、博士生导师袁小平，上海海事大学文理学院教授、博士生导师特木尔朝鲁为我系客座教授。
+近年来我系教师在各类刊物发表论文100余篇,获一项自治区教学成果二等奖，主（参）编自治区十一五规划教材9部，数学教育专业被评为自治区品牌专业，《数学分析》、《解析几何》课程被评为自治区级精品课程，《大学数学与数学建模教学团队》被评为自治区级优秀教学团队。目前我系承担的主要省级科研项目共6项，经费达28万元。
+ </p>
+	<ul class="pic">
+		<li class=""></li>
+	</ul>
+</div>
+<ul class="content clear">
+	<li>
+		<div class="top clear">
+			<strong>通知公告</strong>
+			<a href="#">更多>></a>
+		</div>
+		<div class="Ipt">
+			<img src="../img/dian.png" alt="">
+			<a href="#">数学系2015-2016第二学期数学系系补</a>
+			<span>2016/3/31</span>
+		</div>
+		<div class="Ipt">
+			<img src="../img/dian.png" alt="">
+			<a href="#">数学系2015-2016第二学期数学系系补</a>
+			<span>2016/3/31</span>
+		</div>
+		<div class="Ipt">
+			<img src="../img/dian.png" alt="">
+			<a href="#">数学系2015-2016第二学期数学系系补</a>
+			<span>2016/3/31</span>
+		</div>
+		<div class="Ipt">
+			<img src="../img/dian.png" alt="">
+			<a href="#">数学系2015-2016第二学期数学系系补</a>
+			<span>2016/3/31</span>
+		</div>
+		<div class="Ipt">
+			<img src="../img/dian.png" alt="">
+			<a href="#">数学系2015-2016第二学期数学系系补</a>
+			<span>2016/3/31</span>
+		</div>
+		<div class="Ipt">
+			<img src="../img/dian.png" alt="">
+			<a href="#">数学系2015-2016第二学期数学系系补</a>
+			<span>2016/3/31</span>
+		</div>
+		<div class="Ipt">
+			<img src="../img/dian.png" alt="">
+			<a href="#">数学系2015-2016第二学期数学系系补</a>
+			<span>2016/3/31</span>
+		</div>
+		<div class="Ipt">
+			<img src="../img/dian.png" alt="">
+			<a href="#">数学系2015-2016第二学期数学系系补</a>
+			<span>2016/3/31</span>
+		</div>
+
+	</li>
+	<li>
+		<div class="top clear">
+			<strong>系内要闻</strong>
+			<a href="#">更多>></a>
+		</div>
+		<div class="Ipt">
+			<img src="../img/dian.png" alt="">
+			<a href="#">数学系召开12级信息与计算科学专业学生实训成果</a>
+		</div>
+		<div class="Ipt">
+			<img src="../img/dian.png" alt="">
+			<a href="#">数学系召开12级信息与计算科学专业学生实训成果</a>
+		</div>
+		<div class="Ipt">
+			<img src="../img/dian.png" alt="">
+			<a href="#">数学系召开12级信息与计算科学专业学生实训成果</a>
+		</div>
+		<div class="Ipt">
+			<img src="../img/dian.png" alt="">
+			<a href="#">数学系召开12级信息与计算科学专业学生实训成果</a>
+		</div>
+		<div class="Ipt">
+			<img src="../img/dian.png" alt="">
+			<a href="#">数学系召开12级信息与计算科学专业学生实训成果</a>
+		</div>
+		<div class="Ipt">
+			<img src="../img/dian.png" alt="">
+			<a href="#">数学系召开12级信息与计算科学专业学生实训成果</a>
+		</div>
+		<div class="Ipt">
+			<img src="../img/dian.png" alt="">
+			<a href="#">数学系召开12级信息与计算科学专业学生实训成果</a>
+		</div>
+		<div class="Ipt">
+			<img src="../img/dian.png" alt="">
+			<a href="#">数学系召开12级信息与计算科学专业学生实训成果</a>
+		</div>
+
+	</li>
+	<li id="kangkang">
+		<div class="top3 clear">
+			<strong>图片新闻</strong>
+			<a href="#">更多>></a>
+		</div>
+		<div id="abc">
+			<div id="show">
+				<img src="../img/1.jpg" alt="轮播">
+				<img src="../img/2.jpg" alt="轮播">
+				
+			</div>
+			<span><</span>	
+			<span>></span>
+		</div>
+		<ul id="news">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		
+	</li>
+</ul>
+<div id="foot">
+	<div id="box1">
+		<a href="#">
+			<img src="../img/1.jpg" alt="">
+		</a>
+		<a href="#">
+			<img src="../img/2.jpg" alt="">
+		</a>
+		<a href="#">
+			<img src="../img/3.jpg" alt="">
+		</a>
+		<a href="#">
+			<img src="../img/4.jpg" alt="">
+		</a>
+		<a href="#">
+			<img src="../img/5.jpg" alt="">
+		</a>
+		<a href="#">
+			<img src="../img/6.jpg" alt="">
+		</a>
+		<a href="#">
+			<img src="../img/7.jpg" alt="">
+		</a>
+		<a href="#">
+			<img src="../img/8.jpg" alt="">
+		</a>
+		<a href="#">
+			<img src="../img/9.jpg" alt="">
+		</a>
+		<a href="#">
+			<img src="../img/10.jpg" alt="">
+		</a>
+	</div>
+	<div id="box2">
+		<a href="#">
+			<img src="../img/1.jpg" alt="">
+		</a>
+		<a href="#">
+			<img src="../img/2.jpg" alt="">
+		</a>
+		<a href="#">
+			<img src="../img/3.jpg" alt="">
+		</a>
+		<a href="#">
+			<img src="../img/4.jpg" alt="">
+		</a>
+		<a href="#">
+			<img src="../img/5.jpg" alt="">
+		</a>
+		<a href="#">
+			<img src="../img/6.jpg" alt="">
+		</a>
+		<a href="#">
+			<img src="../img/7.jpg" alt="">
+		</a>
+		<a href="#">
+			<img src="../img/8.jpg" alt="">
+		</a>
+		<a href="#">
+			<img src="../img/9.jpg" alt="">
+		</a>
+		<a href="#">
+			<img src="../img/10.jpg" alt="">
+		</a>
+	</div>
+</div>
+<div id="guestbook">
+	
+		<textarea>编辑你的寄语</textarea>
+		<input type="submit" value="发布">
+		<input type="button" value="取消">
+		<div id="div1">
+
+			<div>
+				<img src="../img/1.png" alt="">
+				
+				<p>生活里忘却愁烦，笑容会让你更加快乐；内心处远离浮躁，冷静会让你更加舒畅；平日时少点计较，知足会让你感觉温馨惬意。愿幸福与你围绕。</p>
+				<a href="javascript:;">删除</a><span>2016-5-20</span><em>13:14</em><b>回复</b>
+			</div>
+			<div>
+				<img src="../img/2.png" alt="">
+				<p>美丽和伤痛总是在一个故事里共生、纠缠，瞬间迸发力量推至永恒。在人性最幽微的深处，我们除了叹息和不妄断，什么都不该做。“在一半的时间里，我不能没有你，在另一半的时间里，我又觉得无所谓，这不在于我爱你多少，而在于我能忍受多少</p>
+				<a href="javascript:;">删除</a><span>2016-5-20</span><em>5:20</em><b>回复</b>
+			</div>
+			
+		</div>
+	</div>
+<script>
+	window.onload = function(){
+
+		var oUl = document.getElementById('news');
+		var aLi = oUl.getElementsByTagName('li');
+		var oDiv = document.getElementById('show');
+		var oAbc = document.getElementById('abc')
+		var aImg = oDiv.getElementsByTagName('img');
+		var aBtn = oAbc.getElementsByTagName('span');
+		var kangkang = document.getElementById('kangkang');
+        var iTimer = 0;
+		var arr = [
+         	
+         	'../img/1.jpg', 
+         	'../img/2.jpg', 
+         	'../img/3.jpg', 
+         	'../img/4.jpg', 
+         	'../img/5.jpg', 
+         	'../img/6.jpg', 
+         	'../img/7.jpg', 
+         	'../img/8.jpg', 
+         	'../img/9.jpg', 
+         	'../img/10.jpg'
+		]
+
+		var num = 0;
+		var shang = arr.length - 1;
+
+		var onOff = true;
+         
+         for (var i = 0; i < aLi.length; i++) {
+         	aLi[i].index = i;
+         	aLi[i].onclick = function(){
+         		num = this.index;
+         		fnTab();
+         	}
+         }
+
+	    kangkang.onmouseover = function(){
+        clearInterval(iTimer);
+    	}
+    	
+    	kangkang.onmouseout = function(){
+    		iTimer = setInterval(
+			function(){
+				 
+			  if(onOff == true){
+
+			      onOff = false;
+
+			      num ++;
+			      shang ++;
+			      num %= arr.length;
+			      shang %= arr.length;
+
+			      aImg[1].src = arr[num];
+			      aImg[1].className = 'next';
+                   
+			      go(oDiv,'left',15,-320,function(){
+			        oDiv.style.left = '0px';
+			        aImg[0].src = arr[num];
+			        onOff = true;
+			    });
+			      fnTab()
+			}
+			},4000);
+    	}
+		aBtn[0].onclick = function(){
+			if(onOff){
+				onOff = false;
+				num --;
+				shang --;
+				num = (num + arr.length) % arr.length;
+  				shang = (num + arr.length) % arr.length;
+  				aImg[1].src = arr[shang];
+  				aImg[1].className = 'prev';
+
+  				go(oDiv,'left',15,320,function(){
+				    oDiv.style.left = '0px';
+				    aImg[0].src = arr[shang];
+				    onOff = true;
+  				}); 
+  				fnTab();
+			}
+
+		};
+		iTimer = setInterval(
+			function(){
+				 
+			  if(onOff == true){
+
+			      onOff = false;
+
+			      num ++;
+			      shang ++;
+			      num %= arr.length;
+			      shang %= arr.length;
+
+			      aImg[1].src = arr[num];
+			      aImg[1].className = 'next';
+                   
+			      go(oDiv,'left',15,-320,function(){
+			        oDiv.style.left = '0px';
+			        aImg[0].src = arr[num];
+			        onOff = true;
+			    });
+			      fnTab()
+			}
+
+			// oAbc.onmouseover=function(){
+			// 	clearInterval();
+			// };
+			
+		},4000);
+		aBtn[1].onclick = function(){
+
+			  if(onOff == true){
+
+			      onOff = false;
+
+			      num ++;
+			      shang ++;
+			      num %= arr.length;
+			      shang %= arr.length;
+
+			      aImg[1].src = arr[num];
+			      aImg[1].className = 'next';
+                   
+			      go(oDiv,'left',15,-320,function(){
+			        oDiv.style.left = '0px';
+			        aImg[0].src = arr[num];
+			        onOff = true;
+			    });
+			      fnTab()
+				}
+		};
+         
+		function go( obj, attr , speed , target , fn ){ 
+  
+		  	var iCur  = getStyle( obj, attr );
+		  	speed = iCur < target ? Math.abs( speed ) : -Math.abs( speed );
+		  
+		  	timer = setInterval(function(){
+		    
+		      iCur  = getStyle( obj, attr ) + speed;
+		      
+		      if( (speed > 0 && iCur >= target ) || (speed < 0 && iCur <= target) ){
+		        iCur = target;  
+		      }
+		      
+		      obj.style[attr] = iCur + 'px';
+
+					if( iCur == target){
+		        clearInterval( timer );
+		        if( typeof fn === 'function' ) fn();
+					}
+		    
+		  	},15);
+		  
+		}
+
+		function getStyle( obj , attr ){
+		  return parseFloat( obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj)[attr] ) || 0;
+		}
+		function fnTab(){
+				for(var i=0; i<aLi.length; i++){
+					aLi[i].className = '';
+				}
+				aLi[num].className = 'active';
+				aImg[0].src = arr[num];
+		}
+	
+
+
+
+	var speed=15; //数字越大速度越慢
+	var tab=document.getElementById("foot");
+	var tab1=document.getElementById("box1");
+	var tab2=document.getElementById("box2");
+	tab2.innerHTML=tab1.innerHTML;
+	function Marquee(){
+		if(tab2.offsetWidth-tab.scrollLeft<=0)
+		tab.scrollLeft-=tab1.offsetWidth
+		else{
+		tab.scrollLeft++;
+		}
+	}
+	var MyMar=setInterval(Marquee,speed);
+	tab.onmouseover=function(){
+		clearInterval(MyMar)
+	};
+	tab.onmouseout=function(){
+		MyMar=setInterval(Marquee,speed)
+	};
+	var oBox=document.getElementById('guestbook')
+	var oText=document.getElementsByTagName('textarea')[0];
+	var oBtn=oBox.getElementsByTagName('input');
+	var oDiv=oBox.getElementsByTagName('div')[0];
+	var str=oText.value;
+	var arr1=['../img/f.jpeg']
+	var arr2=['../img/2.png','../img/10.png','../img/9.png','../img/8.png','../img/6.png','../img/7.png','../img/5.png','../img/4.png','../img/3.png'];
+	var num=0;
+	var oDate = new Date();
+	var iYear = oDate.getFullYear();
+	var iMonth = oDate.getMonth() ; 
+	var iDate = oDate.getDate();
+	var iHour = oDate.getHours();//10点
+    var iMin = oDate.getMinutes();//21分钟
+  	var str3=iYear+'-'+(iMonth+ 1)+'-'+iDate;
+  	var str4 = fn1(iHour) + ':' + fn1(iMin);
+  	var onOff=true;
+	oText.onfocus=function(){
+		if(oText.value==str){
+			oText.value=''
+		}
+	}
+	oText.onblur=function(){
+		if(oText.value==''){
+			oText .value=str
+		}
+	}
+	oBtn[1].onclick=function(){
+		var str1=oText.value
+		if(!str1)return
+		if(oText.value==str1){
+			oText.value=''
+		}
+		
+	}
+	oBtn[0].onmousedown=oBtn[1].onmousedown=function(){
+		this.style.border='1px solid #333';
+		this.style.backgroundColor='rgba(56,56,60,0.5)';
+		this.style.color='#fff';
+
+	}
+	oBtn[0].onmouseup=oBtn[1].onmouseup=function(){
+		this.style.backgroundColor='rgba(168,182,180,0.3)';
+		this.style.border='1px solid #868686';
+		this.style.color='#888';
+
+	}
+
+	
+	oBtn[0].onclick=function(){
+		fn2();
+
+	}
+	oDiv.onclick=function(ev){
+		var ev= ev || event;
+		var target=ev.terget||ev.srcElement;
+		if(target.nodeName.toLowerCase()=='a'){
+			oDiv.removeChild(target.parentNode);
+
+
+		}
+	}
+	oBox.onclick=function(ev){
+		
+		if(onOff){
+		var ev= ev || event;
+		var target=ev.terget||ev.srcElement;
+		var aText=document.createElement('textarea');
+		var aInp=document.createElement('input');	
+		aInp.value='确定';
+			if(target.nodeName.toLowerCase()=='b'){
+				onOff=false
+			target.parentNode.appendChild(aText);
+			target.parentNode.appendChild(aInp);
+				aInp.onclick=function(){
+					onOff=true
+
+						this.style.display='none';
+						aText.style.display='none';
+						var oStion=document.createElement('section');
+						var aP=document.createElement('p');
+						var aImg=document.createElement('img');
+						var oSpan=document.createElement('span');
+						var oEm=document.createElement('em');
+							oSpan.innerHTML=str3;
+							oEm.innerHTML=str4;
+							aImg.src=arr1[0];
+						aP.innerHTML= aText.value;
+						target.parentNode.appendChild(oStion);
+						oStion.setAttribute('class','animated zoomIn');
+						oStion.appendChild(aImg);
+						oStion.appendChild(aP);
+						oStion.appendChild(oSpan);
+						oStion.appendChild(oEm);
+					}
+					
+				}
+			}
+		}
+	document.onkeydown=function(ev){
+		var ev= ev || event
+		if(ev.keyCode==13){
+			fn2();
+		
+		}
+	}
+
+function fn2(){
+		num++
+		num%=arr2.length
+		var aDiv=document.createElement('div');
+		var oP=document.createElement('p');
+		var oImg=document.createElement('img');
+		var oSpan=document.createElement('span');
+		var oEm=document.createElement('em');
+		var oA=document.createElement('a');
+		var oB=document.createElement('b');
+		var str2=oText.value
+		str2=str2.replace(/[\r\n]/g,"");
+		if(oText.value==str|| !str2 ){
+			alert('您还没有填写留言内容')
+			return
+		}
+		oP.innerHTML=str2;
+		oSpan.innerHTML=str3;
+		oEm.innerHTML=str4;
+		oA.innerHTML='删除';
+		oB.innerHTML='回复';
+		oImg.src=arr2[num];
+		aDiv.setAttribute('class','animated zoomInRight');
+		oDiv.insertBefore(aDiv,oDiv.firstChild);
+		aDiv.insertBefore(oImg,aDiv.firstChild);
+		aDiv.appendChild(oP);
+		aDiv.appendChild(oA);
+		aDiv.appendChild(oSpan);
+		aDiv.appendChild(oEm);
+		aDiv.appendChild(oB);
+		oText.value='';
+
+
+}
+function fn1 (n) {
+	if(n<10){
+		return '0' + n;
+	}
+	return '' + n;
+
+}
+}
+</script>
+</body>
+</html>

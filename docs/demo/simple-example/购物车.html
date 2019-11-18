@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<!-- <link rel="stylesheet" href="css/reset.css"> -->
+<script>
+window.onload = function () {
+	var oUl = document.getElementById('list');
+	var aLi = oUl.getElementsByTagName('li');
+	var arr = [0,0,0,0,0];
+	var arr1 = [0,0,0,0,0];
+	var arr2 = [0,0,0,0,0];
+	var oP = document.getElementsByTagName('p')[0];
+	var Hspan = oP.getElementsByTagName('span')[0];
+	var Hen = oP.getElementsByTagName('em')[0];
+	var Hstrong = oP.getElementsByTagName('strong')[0];
+	// fnCount ( aLi[0] );
+	for ( var i=0; i<aLi.length; i++ ) {
+		aLi[i].a = i
+		fnCount ( aLi[i],aLi[i].a );
+		// arr[i] = parseInt(fnCount ( aLi[i] ))
+		// console.log(arr);
+		// alert(fnCount (aLi[i]) )
+	}
+
+
+
+	function fnCount ( li,la ) {
+		var aBtn = li.getElementsByTagName ('input');
+		var oStrong = li.getElementsByTagName ('strong')[0];
+		var oEm = li.getElementsByTagName ('em')[0];
+		var oSpan = li.getElementsByTagName ('span')[0];
+		var n = oStrong.innerHTML;			// '0'
+		var price = parseFloat(oEm.innerHTML);	
+
+
+		var oP = document.getElementsByTagName('p')[0];
+		var Hspan = oP.getElementsByTagName('span')[0];
+		var Hem = oP.getElementsByTagName('em')[0];
+		var Hstrong = oP.getElementsByTagName('strong')[0];
+		var num = 0;
+		var num1 = 0;
+		var num2 = 0;
+		
+				// 12.5
+		
+		aBtn[0].onclick = function () {
+			num = 0;
+			num1 = 0;
+			num2 = 0; 
+			if ( n > 0 ) {
+				n--;
+			}
+			oStrong.innerHTML = n;
+			oSpan.innerHTML = n*price + '元';
+			arr[la] = parseInt(oStrong.innerHTML)
+			for(var i=0; i<arr.length; i++){
+				num = num + arr[i];
+			}
+			Hspan.innerHTML = num;
+
+			arr1[la] = parseFloat(oSpan.innerHTML)
+			for(var i=0; i<arr1.length; i++){
+				num1 = num1 + arr1[i];
+			}
+			Hem.innerHTML = num1;
+			
+
+			console.log(arr2);
+			if( parseFloat(oSpan.innerHTML) > 0){
+				arr2[la] = parseFloat(oEm.innerHTML)
+			}else{
+				arr2[la] = 0;
+			}
+			for(var i=0; i<arr1.length; i++){
+				if(arr2[i] > num2){
+					num2 = arr2[i];
+				}	
+			} 
+			Hstrong.innerHTML = num2;
+		};
+		aBtn[1].onclick = function () {
+			n++;
+			num = 0;
+			num1 = 0;
+			num2 = 0;
+			oStrong.innerHTML = n;
+			oSpan.innerHTML = n*price + '元';
+
+			arr[la] = parseInt(oStrong.innerHTML)
+			
+			for(var i=0; i<arr.length; i++){
+				num = num + arr[i];
+			}
+			Hspan.innerHTML = num;
+
+			arr1[la] = parseFloat(oSpan.innerHTML)
+			console.log(arr2);
+			for(var i=0; i<arr1.length; i++){
+				num1 = num1 + arr1[i];
+			}
+			Hem.innerHTML = num1;
+
+
+			arr2[la] = parseFloat(oEm.innerHTML)
+			// alert( parseFloat(oEm.innerHTML))
+			for(var i=0; i<arr1.length; i++){
+				if(arr2[i] > num2){
+					num2 = arr2[i];
+				}	
+			} 
+			Hstrong.innerHTML = num2;
+
+			// alert (oStrong.innerHTML)
+			// return (oStrong.innerHTML);
+		};
+		
+	}
+};
+</script>
+</head>
+
+<body>
+
+<ul id="list">
+	<li>
+  	<input type="button" value="-" />
+    <strong>0</strong>
+  	<input type="button" value="+" />
+    单价：<em>12.5元</em>
+    小计：<span>0元</span>
+  </li>
+	<li>
+  	<input type="button" value="-" />
+    <strong>0</strong>
+  	<input type="button" value="+" />
+    单价：<em>10.5元</em>
+    小计：<span>0元</span>
+  </li>
+	<li>
+  	<input type="button" value="-" />
+    <strong>0</strong>
+  	<input type="button" value="+" />
+    单价：<em>8.5元</em>
+    小计：<span>0元</span>
+  </li>
+	<li>
+  	<input type="button" value="-" />
+    <strong>0</strong>
+  	<input type="button" value="+" />
+    单价：<em>8元</em>
+    小计：<span>0元</span>
+  </li>
+	<li>
+  	<input type="button" value="-" />
+    <strong>0</strong>
+  	<input type="button" value="+" />
+    单价：<em>14.5元</em>
+    小计：<span>0元</span>
+  </li>
+</ul>
+
+<p>
+商品合计共：<span>0</span>件，共花费了：<em>0</em>元<br />
+其中最贵的商品单价是：<strong>0</strong>元
+</p>
+
+</body>
+</html>
