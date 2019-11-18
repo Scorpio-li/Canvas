@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Picture 变色</title>
+    <style>
+        .pic {
+            width: 200px;
+            height: 200px;
+            /* background-image: url($img); */
+            background-image: url('https://user-gold-cdn.xitu.io/2017/12/21/16077cd3c9600afd?imageView2/0/w/1280/h/960/ignore-error/1');
+            background-size: cover;
+        }
+        
+        .pic1 {
+            width: 200px;
+            height: 200px;
+            /* 叠加了一层渐变层 linear-gradient(#f00, #f00) ，实现了一个纯红色背景，而不是直接使用 #f00 实现红色背景。 */
+            background-image: url('https://user-gold-cdn.xitu.io/2017/12/21/16077cd3c9600afd?imageView2/0/w/1280/h/960/ignore-error/1'), linear-gradient( #f00, #f00);
+            background-blend-mode: lighten;
+            background-size: cover;
+        }
+        
+        .pic2 {
+            width: 200px;
+            height: 200px;
+            background-image: url('https://user-gold-cdn.xitu.io/2017/12/21/16077cd3c9600afd?imageView2/0/w/1280/h/960/ignore-error/1'), linear-gradient( #f00, #00f);
+            background-blend-mode: lighten;
+            background-size: cover;
+        }
+        
+        .pic3 {
+            width: 200px;
+            height: 200px;
+            /* background-image: url($img); */
+            background-image: url('https://user-gold-cdn.xitu.io/2017/12/21/16077cd3c9400258?imageView2/0/w/1280/h/960/ignore-error/1');
+            background-size: cover;
+        }
+        
+        .pic4 {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 30px;
+            /* 叠加了一层渐变层 linear-gradient(#f00, #f00) ，实现了一个纯红色背景，而不是直接使用 #f00 实现红色背景。 */
+            background-image: url('https://user-gold-cdn.xitu.io/2017/12/21/16077cd3c9400258?imageView2/0/w/1280/h/960/ignore-error/1'), linear-gradient( #f00, #f00);
+            background-blend-mode: lighten;
+            background-size: cover;
+        }
+        
+        .pic5 {
+            width: 200px;
+            height: 200px;
+            background-image: url('https://user-gold-cdn.xitu.io/2017/12/21/16077cd3c9400258?imageView2/0/w/1280/h/960/ignore-error/1'), linear-gradient( #f00, #00f);
+            background-blend-mode: lighten;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 使用前提：
+
+    图片的底色为白色，主色为黑色
+     -->
+    <!-- 白底照片 -->
+    <!-- <img class="pic" src="https://user-gold-cdn.xitu.io/2017/12/21/16077cd3c9600afd?imageView2/0/w/1280/h/960/ignore-error/1" alt="测试"> -->
+    <div class="pic"></div>
+    <!-- 使用 background-blend-mode: lighten 实现任意图片颜色赋色技术 -->
+    <div class="pic1"></div>
+    <!-- 使用 background-blend-mode: lighten 实现主色改为渐变色 -->
+    <div class="pic2"></div>
+
+    <!-- 透明底照片 -->
+    <div class="pic3"></div>
+    <div class="pic4"></div>
+    <div class="pic5"></div>
+</body>
+
+</html>
