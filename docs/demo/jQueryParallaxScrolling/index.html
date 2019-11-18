@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery视差滚动 (jQuery parallax scrolling)</title>
+<script src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	redrawDotNav();
+	/* 绑定滚动事件 */
+	$(window).bind('scroll',function(){
+		parallaxScroll();
+		redrawDotNav();
+	});
+
+	/* 跳转 */
+	$('.jump_to').click(function(){
+		var toArticle = "#article"+$(this).attr("rel"); //rel的值是自定义的 让我们知道 要跳到第几段
+		$('html, body').animate({
+			scrollTop:$(toArticle).offset().top
+		}, 1000, function() {
+			parallaxScroll();
+		});
+		return false;
+	});
+
+	/* 图层的滚动范围  这个是重中之重... */
+	function parallaxScroll(){ //
+		var scrolled = $(window).scrollTop();
+		$('#parallax_area1').css('top',(0-(scrolled*.75))+'px');
+		$('#parallax_area2').css('top',(0-(scrolled*.5))+'px');
+		$('#parallax_area3').css('top',(0-(scrolled*.25))+'px');
+	};
+
+	/* 用户滚动时 设置导航点的活动状态 */
+	function redrawDotNav(){
+		var article1Top = 0;
+		var article2Top = $('#article2').offset().top - (($('#article3').offset().top - $('#article2').offset().top) / 2);
+		var article3Top = $('#article3').offset().top - (($('#article4').offset().top - $('#article3').offset().top) / 2);
+		var article4Top = $('#article4').offset().top - (($(document).height() - $('#article4').offset().top) / 2);;
+		$('#primary a').removeClass('active');
+		if($(document).scrollTop() >= article1Top && $(document).scrollTop() < article2Top){
+			$('#primary a.n1').addClass('active');
+		} else if ($(document).scrollTop() >= article2Top && $(document).scrollTop() < article3Top){
+			$('#primary a.n2').addClass('active');
+		} else if ($(document).scrollTop() >= article3Top && $(document).scrollTop() < article4Top){
+			$('#primary a.n3').addClass('active');
+		} else if ($(document).scrollTop() >= article4Top){
+			$('#primary a.n4').addClass('active');
+		}
+	};
+
+	/* 鼠标经过导航按钮 显示or隐藏提示文字 */
+	$('#primary a').hover(function () {
+			$(this).prev('h2').show();
+		},function () {
+			$(this).prev('h2').hide();
+		}
+	);
+
+});
+</script>
+<style type="text/css">
+*{ margin: 0; padding: 0;}
+body{ background:#E5E5E5; font-family:"Microsoft YaHei",Arial,sans-serif;}
+ul{ list-style:none;}
+a, a:link,a:active,a:visited{ color:#21a97e; outline: none; text-decoration:none; -webkit-transition: color 0.25s ease-out; -moz-transition: color 0.25s ease-out; -o-transition: color 0.25s ease-out; transition: color 0.25s ease-out;}
+a:hover { color:#000;}
+
+#wrapper{ height:4300px; position:relative;}
+#header{ background:white; padding:10px 100px;}
+#header h1{ width:940px; font-size:20px; color:#21A97E; margin:0 auto;}
+.parallax_img{ position:absolute;}
+/* nav */
+#primary { position:fixed; top:50%; right:16px; margin-top:-40px; z-index:5;}
+#primary li { height:20px; position:relative;}
+#primary a { display:block; width:20px;  height:20px; text-indent:-9999px; background:url(images/nav_dot.png) 4px 4px no-repeat;}
+#primary a:hover,#primary a.active{ background-position:4px -16px;}
+#primary h2 { display:none; color:#FFF; font-size:12px; height:28px; line-height:28px; white-space:nowrap; padding:0 20px 0 7px; background: transparent url(images/nav_arrow.png) 100% 50% no-repeat; position:absolute; right:22px; top:-6px;}
+/* content */
+#content{ max-width:940px; margin:0 auto; position:relative; z-index:4;}
+#content h2{ color:#21A97E; font-size:60px; font-weight:normal;}
+#content p{ font-size:14px; line-height:20px; margin-top:20px;}
+#content article{ width:340px; position:absolute; padding-top:120px;}
+#content section{ margin-bottom:30px;}
+#content .spacing_line{ display:block; height:3px; margin:5px 0; border:none; border-top:1px solid #3B3B3B; border-bottom:1px solid #3B3B3B;}
+#content .next,#content .prev{ display:block; width:14px; height:11px; text-indent:-9999px; margin:0 auto; background:url(images/scroll_arrow.png) no-repeat;}
+#content .next{ background-position:0 0;}
+#content .next:hover{background-position:0 -11px;}
+#content .prev{ background-position:0 -22px;}
+#content .prev:hover{ background-position:0 -33px;}
+#article1{ top:0;}
+#article2{ top:1060px;}
+#article3{ top:2150px;}
+#article4{ top:3240px;}
+/* parallax_area1 */
+#parallax_area1{ position:fixed; top:0; left:50%; margin-left:-470px; z-index:3;}
+.p1_1{ top:-110px; left:355px;}
+.p1_2{ top:812px; left:321px;}
+.p1_3{ top:1628px; left:403px;}
+.p1_4{ top:2700px; left:-85px;}
+/* parallax_area2 */
+#parallax_area2{ position:fixed; top:0; left:50%; margin-left:-600px; z-index:2;}
+.p2_1{ top:162px; left:200px;}
+.p2_2{ top:300px; left:1150px;}
+.p2_3{ top:543px; left:-35px;}
+.p2_4{ top:1180px; left:250px;}
+.p2_5{ top:900px; left:890px;}
+/* parallax_area3 */
+#parallax_area3{ position:fixed; top:0; left:50%; margin-left:-600px; z-index:1;}
+.p3_1{ top:85px; left:-270px;}
+.p3_2{ top:440px; left:795px;}
+.p3_3{ top:900px; left:-220px;}
+.p3_4{ top:1020px; left:450px;}
+</style>
+</head>
+<body>
+
+<div id="wrapper">
+
+	<header id="header">
+		<h1>jQuery视差滚动示例 - 世界航空航天史</h1>
+	</header>
+	<!-- 导航按钮 -->
+	<nav id="primary">
+		<ul>
+			<li>
+				<h2 style="display: none; ">第一次载人飞行</h2>
+				<a class="jump_to n1 active" rel="1" href="#">章节</a>
+			</li>
+			<li>
+				<h2 style="display: none; ">无骨降落伞</h2>
+				<a class="jump_to n2" rel="2" href="#">章节</a>
+			</li>
+			<li>
+				<h2 style="display: none; ">穿越英吉利海峡</h2>
+				<a class="jump_to n3" rel="3" href="#">章节</a>
+			</li>
+			<li>
+				<h2 style="display: none; ">关于</h2>
+				<a class="jump_to n4" rel="4" href="#">章节</a>
+			</li>
+		</ul>
+	</nav>
+	<!-- 内容层 -->
+	<div id="content">
+		<article id="article1">
+			<section class="section">
+				<h2>第一次载人飞行</h2>
+				<p>1783年11月21日，孟戈菲兄弟(约瑟夫—米歇尔·孟戈菲 Joseph-Michel Montgolfier 和 雅克—艾蒂安·孟戈菲  Jacques-Étienne Montgolfier)用热气球进行了第一次载人飞行实验。气球从巴黎西部的布洛涅林园起飞，在空中持续了25分钟，最后降落在今巴黎十三区的意大利广场附近。</p>
+			</section>
+			<footer class="next_prev"><i class="spacing_line"></i><a class="jump_to next" rel="2" href="#">Next</a></footer>
+		</article>
+		<article id="article2">
+			<section class="section">
+				<h2>无骨降落伞</h2>
+				<p>1797年安德烈-雅克·加纳林(André-Jacques Garnerin)在巴黎蒙梭公园公开表演，他从1000米空中跃下，并靠丝质降落伞成功着陆。之后他开始在北欧进行巡演，并于1802年在伦敦从惊人的2400米的高度跃下。</p>
+			</section>
+			<footer class="next_prev"><a class="jump_to prev" rel="1" href="#">top</a><i class="spacing_line"></i><a class="jump_to next" rel="3" href="#">Next</a></footer>
+		</article>
+		<article id="article3">
+			<section class="section">
+				<h2>穿越英吉利海峡</h2>
+				<p>1785年1月7日，法国气球飞行家让-皮埃尔·布兰查德(Jean-Pierre Blanchard)和美国医生约翰·杰弗里斯(John Jeffries)从多佛堡乘氢气球出发。在路途中，他们不得不把所有东西都扔出气球外才能维持漂浮状态。不过最终在两个半小时后，他们两个还是毫发无损地到达了法国。</p>
+			</section>
+			<footer class="next_prev"><a class="jump_to prev" rel="2" href="#">top</a><i class="spacing_line"></i><a class="jump_to next" rel="4" href="#">Next</a></footer>
+		</article>
+		<article id="article4">
+			<section class="section">
+				<h2>关于</h2>
+				<p>这是一个基于jQuery的视差滚动示例。<br>详细内容，<a href="http://www.bluesdream.com/blog/build-a-jquery-parallax-scrolling-website.html">请查看原文</a></p>
+				<p>By: www.bluesdream.com <script src="http://s9.cnzz.com/stat.php?id=1734797&web_id=1734797" language="JavaScript"></script></p>
+			</section>
+			<footer class="next_prev"><a class="jump_to prev" rel="3" href="#">top</a><i class="spacing_line"></i></footer>
+		</article>
+	</div>
+	<!-- 气球、风景图片层 -->
+	<div id="parallax_area1">
+		<img class="parallax_img p1_1" src="images/balloon.png" width="529" height="757" alt="Montgolfier hot air balloon">
+		<img class="parallax_img p1_2" src="images/balloon2.png" width="603" height="583" alt="Frameless parachute">
+		<img class="parallax_img p1_3" src="images/balloon3.png" width="446" height="713" alt="Blanchard's air balloon">
+		<img class="parallax_img p1_4" src="images/ground.png" width="1104" height="684" alt="Landscape with trees and cows">
+	</div>
+	<!-- 云层1 -->
+	<div id="parallax_area2">
+		<img class="parallax_img p2_1" src="images/cloud1.png" width="488" height="138" alt="cloud">
+		<img class="parallax_img p2_2" src="images/cloud1.png" width="488" height="138" alt="cloud">
+		<img class="parallax_img p2_3" src="images/cloud1.png" width="488" height="138" alt="cloud">
+		<img class="parallax_img p2_4" src="images/cloud1.png" width="488" height="138" alt="cloud">
+		<img class="parallax_img p2_5" src="images/cloud1.png" width="488" height="138" alt="cloud">
+	</div>
+	<!-- 云层2 -->
+	<div id="parallax_area3">
+		<img class="parallax_img p3_1" src="images/cloud2.png" width="311" height="105" alt="Montgolfier hot air balloon">
+		<img class="parallax_img p3_2" src="images/cloud2.png" width="311" height="105" alt="Frameless parachute">
+		<img class="parallax_img p3_3" src="images/cloud2.png" width="311" height="105" alt="Blanchard's air balloon">
+		<img class="parallax_img p3_4" src="images/cloud2.png" width="311" height="105" alt="Landscape with trees and cows">
+	</div>
+
+</div>
+
+</body>
