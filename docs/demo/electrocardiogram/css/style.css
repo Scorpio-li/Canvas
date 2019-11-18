@@ -1,0 +1,8 @@
+ body{
+	  margin:0;
+ }
+canvas {
+    background: #000;
+	   width:1000px;
+    height:400px;
+ }
