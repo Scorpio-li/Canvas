@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>line</title>
+    <style type="text/css">
+        * {
+            margin: 0 auto;
+            padding: 0;
+        }
+        
+        #line,
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: skyblue;
+            position: relative;
+        }
+        
+        .point {
+            border-radius: 50% 50%;
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            box-shadow: 0 0 5px white, 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8), 0 0 35px rgba(255, 255, 255, 0.8), 0 0 55px rgba(255, 255, 255, 0.8)
+        }
+        
+        .p2 {
+            background: #000;
+            color: #fff;
+        }
+        
+        .line {
+            position: absolute;
+            height: 10px;
+            background-color: white;
+            z-index: 0;
+        }
+    </style>
+    <script type="text/javascript" src='./js/jquery-2.1.3.min.js'></script>
+    <script type="text/javascript" src='./js/jquery.easing.1.3.js'></script>
+    <script type="text/javascript">
+        $(function() {
+
+            var allLine = $('<div id="line"></div>');
+            allLine.appendTo($('body'));
+
+            links([{
+                x: '10%',
+                y: '10%'
+            }, {
+                x: '20%',
+                y: '20%'
+            }, {
+                x: '30%',
+                y: '30%'
+            }, {
+                x: '40%',
+                y: '50%'
+            }, {
+                x: '50%',
+                y: '40%'
+            }]);
+
+            function links(arg) {
+
+                var timer;
+                for (var i = 0; i < arg.length; i++) {
+
+                    var x = arg[i].x;
+                    var y = arg[i].y;
+
+                    var newDiv = $('<div class="point"></div>');
+                    newDiv.appendTo($('#line'));
+
+                    var newWidth = newDiv.width();
+                    var newHeight = newDiv.height();
+
+                    if (/%/.test(x)) {
+
+                        var w = parseInt(x) - newDiv.width() / 2 / allLine.width() * 100 + '%';
+
+                    } else if (/px/.test(x)) {
+
+                        var w = parseInt(x) - newDiv.width() / 2;
+
+                    } else if (/^\d+$/.test(x)) {
+
+                        var w = x - newDiv.width() / 2;
+                        x = x + 'px';
+
+                    }
+                    if (/%/.test(y)) {
+
+                        var h = parseInt(y) - newDiv.height() / 2 / allLine.height() * 100 + '%';
+
+                    } else if (/px/.test(y)) {
+
+                        var h = parseInt(y) - newDiv.height() / 2;
+
+                    } else if (/^\d+$/.test(y)) {
+
+                        var h = y - newDiv.height() / 2;
+                        y = y + 'px';
+
+                    }
+
+                    newDiv.css({
+                        left: x,
+                        top: y,
+                        width: 0,
+                        height: 0
+                    });
+                    newDiv.delay(i * 600).animate({
+                        width: newWidth,
+                        height: newHeight,
+                        left: w,
+                        top: h
+                    }, {
+                        easing: "easeOutBounce",
+                        duration: 300
+                    });
+
+                }
+                if ($('.point').length > 1) {
+
+                    var xx = [];
+                    var yy = [];
+
+                    for (var j = 0; j < $('.point').length; j++) {
+
+                        xx.push(parseInt($('.point').eq(j).css('left')) + $('.point').eq(j).width() / 2);
+                        yy.push(parseInt($('.point').eq(j).css('top')) + $('.point').eq(j).height() / 2);
+
+                    }
+                    var z;
+
+                    function getAngle(x1, y1, x2, y2) {
+                        // 直角的边长
+                        var x = Math.abs(x1 - x2);
+                        var y = Math.abs(y1 - y2);
+                        // 斜边长
+                        z = Math.sqrt(x * x + y * y);
+                        // 余弦
+
+                        var cos = y / z;
+                        // 弧度
+                        var radina = Math.acos(cos);
+                        // 角度
+                        var angle = 180 / (Math.PI / radina);
+
+                        return angle;
+                    }
+                    for (var j = 0; j < xx.length - 1; j++) {
+                        var a = getAngle(xx[j], yy[j], xx[j + 1], yy[j + 1]);
+                        a -= 90;
+                        if (yy[j] - yy[j + 1] < 0) {
+                            a *= -1;
+                        }
+                        if (xx[j] - xx[j + 1] > 0) {
+                            a -= 180;
+                            a *= -1;
+                        }
+                        var newLine = $('<p class="line"></p>');
+                        newLine.appendTo($('#line'));
+                        var lineH = newLine.height() / 2;
+                        newLine.css({
+                            transform: 'rotate(' + a + 'deg)',
+                            width: 0,
+                            transformOrigin: 'left center'
+                        });
+                        newLine.css({
+                            left: xx[j],
+                            top: yy[j] - lineH
+                        });
+
+                        newLine.delay(j * 600 + 300).animate({
+                            width: z
+                        }, 300);
+
+                    }
+
+                }
+
+                var num = 1;
+                var n = -.05;
+                var runing = setInterval(function() {
+
+                    num += n;
+                    if (num < .3) {
+                        n = .05;
+                    }
+                    if (num >= 1) {
+                        n = -.05;
+                    }
+
+                    $('.point').css('boxShadow', '0 0 5px white,0 0 10px rgba(255,255,255,' + num + '),0 0 20px rgba(255,255,255,' + num + '),0 0 35px rgba(255,255,255,' + num + '),0 0 55px rgba(255,255,255,' + num + ')')
+
+                }, 30);
+
+
+                window.onresize = function() {
+
+                    clearInterval(runing);
+                    allLine.html('');
+                    links(arg);
+
+                }
+
+            }
+
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <!-- <div class="point"></div> -->
+    <!-- <p class="line"></p> -->
+</body>
+
+</html>
