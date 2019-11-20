@@ -1,0 +1,26 @@
+/*//CSS reset*/
+body,html {
+    height:100%;
+    padding: 0;
+    margin: 0
+}
+/*//左栏左浮动*/
+.left {
+    background: red;
+    width: 100px;
+    float: left;
+    height: 100%;
+}
+/*//中间自适应*/
+.main {
+    background: blue;
+    height: 100%;
+    margin:0px 200px 0px 100px;
+}
+/*//右栏右浮动*/
+.right {
+    background: red;
+    width: 200px;
+    float: right;
+    height: 100%;
+}

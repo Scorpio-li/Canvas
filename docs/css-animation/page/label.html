@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>通过计数器实现复杂的嵌套</title>
+    <style type="text/css">
+        h1::before {
+            content: counter(h1)'.';
+        }
+        
+        h1 {
+            counter-increment: h1;
+            /*设置counter-reset 属性，重置h2*/
+            counter-reset: h2;
+        }
+        
+        h2::before {
+            content: counter(h1) '-' counter(h2);
+        }
+        
+        h2 {
+            counter-increment: h2;
+            /*设置counter-reset 属性,重置h3*/
+            counter-reset: h3;
+            margin-left: 30px;
+        }
+        
+        h3::before {
+            /*添加连接符*/
+            content: counter(h1) '-' counter(h2) '-' counter(h3);
+        }
+        
+        h3 {
+            counter-increment: h3;
+            margin-left: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>大标题</h1>
+    <h2>中标题</h2>
+    <h3>小标题</h3>
+    <h3>小标题</h3>
+    <h2>中标题</h2>
+    <h3>小标题</h3>
+    <h3>小标题</h3>
+    <h1>大标题</h1>
+    <h2>中标题</h2>
+    <h3>小标题</h3>
+    <h3>小标题</h3>
+    <h2>中标题</h2>
+    <h3>小标题</h3>
+    <h3>小标题</h3>
+</body>
+
+</html>

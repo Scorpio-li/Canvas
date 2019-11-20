@@ -1,0 +1,27 @@
+/*简单的进行CSS reset*/
+body,html{
+    height:100%;
+    padding: 0px;
+    margin:0px;
+}
+/*//左右绝对定位*/
+.left,.right{
+    position: absolute;
+    top:0px;
+    background: red;
+    height:100%;
+}
+.left{
+    left:0;
+    width:100px;
+}
+.right{
+    right:0px;
+    width:200px;
+}
+/*//中间使用margin空出左右元素所占据的空间*/
+.main{
+    margin:0px 200px 0px 100px;
+    height:100%;
+    background: blue;
+}
