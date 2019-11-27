@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传知识</title>
+</head>
+
+<body>
+    <form action="upload" id="uploadForm" method="POST" enctype="multipart/form-data">
+        <input type="file" id="myFile" name="file"></input>
+        <input type="submit" value="提交"></input>
+    </form>
+
+    <!-- 多文件上传 ：multiple属性
+		我们就能在打开的文件选择对话框中选中多个文件了。然后你在代码里拿到的FileUpload对象的files属性就是一个选中的多文件的数组了。
+	-->
+    <input id="myFile2" type="file" multiple>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    // 使用 XMLHttpRequest上传文件：
+    function fileUpload() {
+        var xhr = new XMLHttpRequest();
+        var formData = new FormData();
+        var fileInput = document.getElementById("myFile");
+        var file = fileInput.files[0];
+        console.log('file', file);
+        formdata.append('myFile', file);
+
+        xhr.open("POST", "/upload.php");
+
+        xhr.onload = function() {
+            if (this.status === 200) {
+                //对请求成功的处理
+            }
+        }
+
+        // 1. onprogress 事件回调方法可用于跟踪资源上传的进度，它的event参数对象包含两个重要的属性loaded和total。分别代表当前已上传的字节数（number of bytes）和文件的总字节数。
+        xhr.upload.onprogress = function(event) {
+            if (event.lengthComputable) {
+                var percentComplete = (event.loaded / event.total) * 100;
+                // 对进度进行处理
+            }
+        }
+
+        // 2. lengthComputable属性代表文件总大小是否可知。如果 lengthComputable 属性的值是 false，那么意味着总字节数是未知并且 total 的值为零。
+        // 如果是现代浏览器，可以直接配合HTML5提供的元素使用，方便快捷的显示进度条。
+        // <progress id="myProgress" value="50" max="100"></progress>
+        // 其value属性绑定上面代码中的percentComplete的值即可。
+
+        xhr.send(formData);
+        xhr = null;
+    }
+
+    // HTML5的FileReader : 预览图片
+    // 在创建新的FileReader对象之后，我们建立了onload函数，然后调用readAsDataURL()开始在后台进行读取操作。当图像文件加载后，转换成一个 data: URL，并传递到onload回调函数中设置给img的src。
+    function handleImageFile(file) {
+        // 方法一：
+        var previewArea = document.getElementById('previewArea');
+        var img = document.createElement('img');
+        var fileInput = document.getElementById("myFile");
+        var file = fileInput.files[0];
+        img.file = file;
+        previewArea.appendChild(img);
+
+        var reader = new FileReader();
+        reader.onload = (function(aImg) {
+            return function(e) {
+                aImg.src = e.target.result;
+            }
+        })(img);
+        reader.readAsDataURL(file);
+
+        // 方法二：
+        var img = document.createElement("img");
+        img.src = window.URL.createObjectURL(file);;
+        img.onload = function() {
+            // 明确地通过调用释放
+            window.URL.revokeObjectURL(this.src);
+        }
+        previewArea.appendChild(img);
+    }
+
+    // 获取多文件数组
+    function getFiles() {
+        var fileInput = document.getElementById("myFile2");
+        var files = fileInput.files;
+        var formData = new FormData();
+
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            formData.append('files[]', file, file.name);
+        }
+        // FormData的append方法提供第三个可选参数用于指定文件名，这样就可以使用同一个表单项名，然后用文件名区分上传的多个文件。这样也方便前后台的循环操作。
+    }
+
+    // 二进制上传：读取文件内容后直接以二进制格式上传
+    function binaryUpload() {
+        var reader = new FileReader();
+        reader.onload = function() {
+                xhr.sendAsBinary(this.result);
+            }
+            // 把从input里读取的文件内容，放到fileReader的result字段里
+        reader.readAsBinaryString(file);
+
+        // 不过chrome已经把XMLHttpRequest的sendAsBinary方法移除了。所以可能得自行实现一个
+        XMLHttpRequest.prototype.sendAsBinary = function(text) {
+            var data = new ArrayBuffer(text.length);
+            var ui8a = new Uint8Array(data, 0);
+            for (var i = 0; i < text.length; i++) {
+                ui8a[i] = (text.charCodeAt(i) & 0xff);
+            }
+            this.send(ui8a);
+        }
+    }
+
+    // 拖拽的支持
+    function dragFile() {
+        var dropArea;
+
+        dropArea = document.getElementById("dropArea");
+        dropArea.addEventListener("dragenter", handleDragenter, false);
+        dropArea.addEventListener("dragover", handleDragover, false);
+        dropArea.addEventListener("drop", handleDrop, false);
+
+        // 阻止dragenter和dragover的默认行为，这样才能使drop事件被触发
+        function handleDragenter(e) {
+            e.stopPropagation();
+            e.preventDefault();
+        }
+
+        function handleDragover(e) {
+            e.stopPropagation();
+            e.preventDefault();
+        }
+
+        function handleDrop(e) {
+            e.stopPropagation();
+            e.preventDefault();
+
+            var dt = e.dataTransfer;
+            var files = dt.files;
+
+            // handle files ...
+        }
+    }
+
+    // 借用iframe：兼容低版本文件上传
+    // 在现代浏览器中我们可以用XMLHttpRequest Level 2来支持二进制数据，异步文件上传，并且动态创建FormData。而低版本的IE里的XMLHttpRequest是Level 1。所以我们通过XHR异步向服务器发上传请求的路走不通了。只能老老实实的用form的submit。而form的submit会导致页面的刷新。
+    // 为了使submit不刷新整个页面：把form的target指定到一个看不见的iframe，那么返回的数据就会被这个iframe接受，于是乎就只有这个iframe会刷新。而它又是看不见的，用户自然就感知不到了。
+
+    function iframeFile() {
+        window.__iframeCount = 0;
+        var hiddenframe = document.createElement("iframe");
+        var frameName = "upload-iframe" + ++window.__iframeCount;
+        hiddenframe.name = frameName;
+        hiddenframe.id = frameName;
+        hiddenframe.setAttribute("style", "width:0;height:0;display:none");
+        document.body.appendChild(hiddenframe);
+
+        var form = document.getElementById("myForm");
+        form.target = frameName;
+
+        // 响应iframe的onload事件，获取response 
+        hiddenframe.onload = function() {
+            // 获取iframe的内容，即服务返回的数据
+            var resData = this.contentDocument.body.textContent || this.contentWindow.document.body.textContent;
+            // 处理数据 。。。
+
+            //删除iframe
+            setTimeout(function() {
+                var _frame = document.getElementById(frameName);
+                _frame.parentNode.removeChild(_frame);
+            }, 100);
+        }
+
+        // 如果文件上传的地址与当前页面不在同一个域下就会出现跨域问题。导致iframe的onload回调里的访问服务返回的数据失败。
+        // JSONP:首先在上传之前注册一个全局的函数，把函数名发给服务器。服务器需要配合在response里让浏览器直接调用这个函数。
+        // 生成全局函数名，避免冲突
+        var CALLBACK_NAME = 'CALLBACK_NAME';
+        var genCallbackName = (function() {
+            var i = 0;
+            return function() {
+                return CALLBACK_NAME + ++i;
+
+            };
+        })();
+
+        var curCallbackName = genCallbackName();
+        window[curCallbackName] = function(res) {
+            // 处理response 。。。
+
+            // 删除iframe
+            var _frame = document.getElementById(frameName);
+            _frame.parentNode.removeChild(_frame);
+            // 删除全局函数本身
+            window[curCallbackName] = undefined;
+        }
+
+        // 如果已有其他参数，这里需要判断一下，改为拼接 &callback=
+        form.action = form.action + '?callback=' + curCallbackName;
+    }
+</script>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>javascript:碰撞运动且同时切换背景</title>
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<input type="button" value="开始运动" id="btn">
+	<input type="button" value="暂停运动" id="stop">
+	<input type="button" value="结束运动" id="finish">
+
+	<div id="div1">
+		<img src="image/child_pet1.jpg" alt="" style="display: block;">
+		<img src="image/child_pet2.jpg" alt="">
+		<img src="image/child_pet3.jpg" alt="">
+		<img src="image/child_pet4.jpg" alt="">
+		<img src="image/child_pet5.jpg" alt="">
+		<img src="image/child_pet6.jpg" alt="">
+	</div>
+</body>
+<script type="text/javascript">
+
+	var speedX = 6;
+	var speedY = 8;
+	var num = 0;
+
+	window.onload = function(){
+		var btn = document.getElementById('btn');
+		var stop = document.getElementById('stop');
+		var finish = document.getElementById('finish');
+		btn.onclick = function(){
+			startMove();
+		};
+		stop.onclick = function() {
+			clearInterval(interval);
+		};
+		finish.onclick = function() {
+			clearInterval(interval);
+			var div1 = document.getElementById("div1");
+			div1.style.left = 'auto';
+			div1.style.top = 'auto';
+		};
+	}
+	var interval;
+	// 图片移动及碰撞检测
+	function startMove(){
+		interval = setInterval(function(){
+			var div1 = document.getElementById("div1");
+			var l = div1.offsetLeft + speedX;
+			var t = div1.offsetTop + speedY;
+			if(t >= document.documentElement.clientHeight-div1.offsetHeight){
+				speedY *= -1;
+				t = document.documentElement.clientHeight-div1.offsetHeight;
+				num++;
+				tabImage(num);
+			}else if(t <= 0){
+				speedY *=-1;
+				t = 0;
+				num++;
+				tabImage(num);
+			}
+			if(l >= document.documentElement.clientWidth-div1.offsetWidth){
+				speedX *= -1;
+				l = document.documentElement.clientWidth-div1.offsetWidth;
+				num++;
+				tabImage(num);
+			}else if(l <= 0){
+				speedX *=-1;
+				l = 0;
+				num++;
+				tabImage(num);
+			}
+
+			div1.style.left = l + 'px';
+			div1.style.top = t + 'px';
+		},50);
+	}
+	// 切换图片函数
+	function tabImage(num){
+		var div1 = document.getElementById("div1");
+		var aImage = div1.getElementsByTagName('img');
+		for (var i = 0; i < aImage.length; i++) {
+			aImage[i].style.display = 'none';
+		}
+		aImage[num%aImage.length].style.display='block';
+
+	}
+</script>
+</html>

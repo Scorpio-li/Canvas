@@ -1,0 +1,204 @@
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    text-decoration:none; 
+}
+/*旅游产品分类*/
+.product_sort{
+    margin:20px;
+    width:226px;
+    height:644px;
+    background:#fff url(../image/img_bottom.jpg) no-repeat left bottom;
+    border:solid 1px #3299fd;
+    position:relative; 
+    z-index:90;
+}
+.product_sort .hd{
+    width:226px;
+    background:url(../image/img_top.jpg) no-repeat;
+    height:40px;
+    line-height:40px;
+    text-indent:15px;
+    font-size:15px;
+    font-weight:bold;
+    font-family:"微软雅黑";
+    color:#fff;
+}
+.product_sort .bd{
+    padding-bottom:10px;
+}
+.product_sort .bd .item{
+    border-bottom:solid 1px #3299fd;
+    height:60px;
+    position:relative;
+}
+.product_sort .bd .item .title{
+    width:226px;
+    text-indent:43px;
+    height:30px;
+    overflow:hidden;
+    line-height:42px;
+    font-size:14px;
+    font-weight:bold;
+    color:#292929;
+}
+.product_sort .bd .item .title a{
+    color:#3299fd;
+    position:relative;
+}
+.product_sort .bd .item .title a i{
+    position:absolute;
+    background:url(../image/icon_nav.jpg) no-repeat;
+}
+.product_sort .bd .item .one a i{
+    width:19px;
+    height:19px;
+    background-position:0 0;
+    left:-25px;
+    top:-3px;
+}
+.product_sort .bd .item .two a i{
+    width:22px;
+    height:20px;
+    background-position:0 -51px;
+    left:-28px;
+    top:-5px;
+}
+.product_sort .bd .item .three a i{
+    width:31px;
+    height:23px;
+    background-position:0 -101px;
+    left:-34px;
+    top:-7px;
+}
+.product_sort .bd .item .four a i{
+    width:25px;
+    height:17px;
+    background-position:0 -156px;
+    left:-29px;
+    top:-3px;
+}
+.product_sort .bd .item .five a i{
+    width:28px;
+    height:17px;
+    background-position:0 -207px;
+    left:-33px;
+    top:-1px;
+}
+.product_sort .bd .item .six a i{
+    width:28px;
+    height:17px;
+    background-position:0 -259px;
+    left:-32px;
+    top:-3px;
+}
+.product_sort .bd .item .seven a i{
+    width:26px;
+    height:20px;
+    background-position:0 -309px;
+    left:-31px;
+    top:-6px;
+}
+.product_sort .bd .item .eight a i{
+    width:26px;
+    height:21px;
+    background-position:0 -360px;
+    left:-32px;
+    top:-7px;
+}
+.product_sort .bd .item .list{
+    width:210px;
+    padding-left:15px;
+    height:30px;
+    line-height:30px;
+    overflow:hidden;
+}
+.product_sort .bd .item .list a{
+    font-family:"微软雅黑";
+    color:#333;
+}
+.product_sort .bd .item .list a:hover{
+    text-decoration:underline;
+}
+.product_sort .bd .item .arrow{
+    font-family:"微软雅黑";
+    font-size:20px;
+    color:#c0d7f9;
+    position:absolute;
+    right:10px;
+    top:14px;
+}
+.product_sort .bd .item .line{
+    position:absolute;
+    right:-2px;
+    top:0px;
+    width:2px;
+    height:60px;
+    background-color:#fff;
+    z-index:95;
+    display:none;
+}
+.product_sort .bd .item .subitem{
+    display:none;
+}
+.product_sort .bd .layer .line{
+    display:block;
+}
+.product_sort .bd .layer .arrow{
+    display:none;
+}
+.product_sort .bd .layer .subitem{
+    width:731px;
+    background:#fff;
+    border:solid 1px #3299fd;
+    border-left:none;
+    font-family:"微软雅黑";
+    position:absolute;
+    left:227px;
+    _left:228px;
+    top:-15px;
+    z-index:95;
+    min-height:60px;
+    height:auto!important;
+    height:60px;
+    padding:5px 10px 15px 10px;
+    display:block;
+}
+.product_sort .bd .layer .subitem .inner .tit{
+    font-size:12px; 
+    text-align:left; 
+    border-top:1px dashed #d7d7d7;
+    padding:5px 0;
+}
+.product_sort .bd .layer .subitem .inner .tit1{
+    border-top:none;
+}
+.product_sort .bd .layer .subitem .inner .tit .name{
+    display:block;
+    width:90px;
+    color:#3299fd;
+    cursor:pointer;
+    float:left;
+    padding-top:3px;
+}
+.product_sort .bd .layer .subitem .inner ul{
+    overflow:hidden;
+    zoom:1;
+    display:block;
+    margin-left:90px;
+    width:630px;
+}
+.product_sort .bd .layer .subitem .inner ul li{
+    float:left;
+    padding:0 8px;
+    height:25px;
+}
+.product_sort .bd .layer .subitem .inner ul li a{
+    color:#222;
+    display:block;
+}
+.product_sort .bd .layer .subitem .inner ul li a:hover{
+    color:#3299fd;
+    text-decoration:underline;
+}

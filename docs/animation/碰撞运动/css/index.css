@@ -1,0 +1,25 @@
+#div1 {
+
+width:200px;
+
+height:200px;
+
+position:absolute;
+
+}
+
+#div1 img{
+
+display: none;
+
+width: 200px;
+
+height: 200px;
+
+position: absolute;
+
+left: 0px;
+
+top: 0px;
+
+}
