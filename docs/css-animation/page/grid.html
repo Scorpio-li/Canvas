@@ -1,0 +1,103 @@
+<!--
+ * @LastEditors: lizhiliang
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Grid 实战——实现响应式布局</title>
+    <style>
+        .wrapper {
+            margin: 60px;
+            /* 声明一个容器 */
+            display: grid;
+            /*  声明列的宽度  */
+            grid-template-columns: repeat(3, 200px);
+            /*  声明行间距和列间距  */
+            grid-gap: 20px;
+            /*  声明行的高度  */
+            grid-template-rows: 100px 200px;
+        }
+        /* fr 实现等分响应式 */
+        
+        .wrapper {
+            margin: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 10px 20px;
+            grid-auto-rows: 50px;
+        }
+        /* repeat + auto-fit——固定列宽，改变列数量 */
+        /* 网格能够固定列宽，并根据容器的宽度来改变列的数量。 */
+        
+        .wrapper {
+            margin: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 200px);
+            grid-gap: 10px 20px;
+            grid-auto-rows: 50px;
+        }
+        /* repeat+auto-fit+minmax 去掉右侧空白 */
+        /* 上面看到的效果中，右侧通常会留下空白，这是我们不希望看到的。如果列的宽度也能在某个范围内自适应就好了。 */
+        
+        .wrapper {
+            margin: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 10px 20px;
+            grid-auto-rows: 50px;
+        }
+        /* repeat+auto-fit+minmax-span-dense 解决空缺问题 */
+        
+        .item-3 {
+            grid-column-start: span 3;
+        }
+        
+        .one {
+            background: #19CAAD;
+        }
+        
+        .two {
+            background: #8CC7B5;
+        }
+        
+        .three {
+            background: #D1BA74;
+        }
+        
+        .four {
+            background: #BEE7E9;
+        }
+        
+        .five {
+            background: #E6CEAC;
+        }
+        
+        .six {
+            background: #ECAD9E;
+        }
+        
+        .item {
+            text-align: center;
+            font-size: 200%;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="one item">One</div>
+        <div class="two item">Two</div>
+        <div class="three item">Three</div>
+        <div class="four item">Four</div>
+        <div class="five item">Five</div>
+        <div class="six item">Six</div>
+    </div>
+
+</body>
+
+</html>

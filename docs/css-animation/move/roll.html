@@ -1,0 +1,75 @@
+<!--
+ * @LastEditors: lizhiliang
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>不定宽溢出文本适配滚动</title>
+    <style>
+        /* 容器定宽，文本不定宽 */
+        
+        .wrap {
+            position: relative;
+            width: 150px;
+            overflow: hidden;
+        }
+        
+        p {
+            /* 使用 inline-block 获取实际文本的宽度 */
+            display: inline-block;
+            white-space: nowrap;
+        }
+        
+        p:hover {
+            animation: move 1.5s infinite alternate linear;
+        }
+        /* 需要滚动的距离 S = 溢出的文本元素的宽度 - 父元素的宽度 */
+        /* @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(calc(-100% + 150px), 0);
+            }
+        } */
+        /* 父容器不定宽 */
+        
+        @keyframes move {
+            0% {
+                left: 0;
+                transform: translate(0, 0);
+            }
+            100% {
+                /* left: 100% 能够实现向右位移父容器宽度的 100% */
+                /* left: 100%; */
+                margin-left: 100%;
+                /* transform: translate(-100%, 0) 能够向左位移自身宽度的 100% */
+                transform: translate(-100%, 0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 父容器定宽，子文本不定宽 -->
+    <div class="wrap">
+        <p title="我的宽度是正常宽度">我的宽度是正常宽度</p>
+        <p class="scroll" title="我的宽度是溢出了一小部分">我的宽度是溢出了一小部分</p>
+        <p class="scroll" title="我的宽度是溢出了溢出了很大一部分">我的宽度是溢出了溢出了很大一部分</p>
+    </div>
+    <!-- 父容器不定宽度 -->
+    <!-- 不足之处 -->
+    <!-- 1. 无法判断文本长度是否超出父元素宽度
+
+当然，上述方案并非完美的方案，如果我们希望只针对本文长度溢出的情况，hover 的时候才进行滚动，这一点在使用纯 CSS 的情况下是无法实现的。
+我们无法通过 CSS 去判断当前元素长度是否大于父元素长度再选择性的进行动画。毕竟 CSS 只是负责样式，不控制行为。所以实际使用中，可能还是需要借助 JavaScript 简单判断，然后通过一个 class 进行控制。 -->
+    <!-- 2. 动画闪烁
+在父容器不定宽度的情况下，由于需要同时对两个属性进行动画，并且位移的方向是相反的，所以动画看上去会有一点闪烁。这个暂时没有找到特别好的解决方案。 -->
+
+</body>
+
+</html>
