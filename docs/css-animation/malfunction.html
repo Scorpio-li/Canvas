@@ -1,0 +1,135 @@
+<!--
+ * @LastEditors: lizhiliang
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css3打造有点意思的故障艺术</title>
+    <style>
+        /* <!-- 该效果的实现依赖于Css3的新特性mix-blend-mode和background-blend-mode.接下来笔者简单介绍一下: --> */
+        /* <!-- 
+        1. mix-blend-mode
+        mix-blend-mode: normal;(正常)
+        mix-blend-mode: multiply(正片叠底)
+        mix-blend-mode: screen;(滤色)
+        mix-blend-mode: overlay;(叠加)
+        mix-blend-mode: darken; (变暗)
+        mix-blend-mode: lighten; (变亮)
+        mix-blend-mode: color-dodge; (颜色减淡)
+        mix-blend-mode: color-burn; (颜色加深)
+        mix-blend-mode: hard-light; (强光)
+        mix-blend-mode: soft-light;(柔光)
+        mix-blend-mode: difference; (差值)
+        mix-blend-mode: exclusion; (排除)
+        mix-blend-mode: hue;(色相)
+        mix-blend-mode: saturation; (饱和度)
+        mix-blend-mode: color; (颜色)
+        mix-blend-mode: luminosity; (亮度)
+        mix-blend-mode: initial;(初始)
+        mix-blend-mode: inherit; (继承)
+        mix-blend-mode: unset; (复原)
+     --> */
+        
+        .blink {
+            background-color: #000;
+            font-size: 32px;
+            position: relative;
+            /* text-align: center;
+            margin: 100px; */
+        }
+        
+        .blink .blink-item .text-front {
+            color: #74fcfd;
+            animation: shakeFront .5s infinite;
+        }
+        
+        .blink .blink-item .text-back {
+            position: absolute;
+            transform: translate(-5px, -100%);
+            color: #ea3448;
+            mix-blend-mode: lighten;
+            animation: shake .5s infinite;
+        }
+        
+        .blink .blink-item::after {
+            content: '';
+            position: absolute;
+            z-index: 3;
+            left: 0;
+            top: 30px;
+            width: 100%;
+            height: 4px;
+            background-color: #000;
+            animation: lineShake .5s infinite;
+        }
+        /* 前置文字 */
+        
+        @keyframes shakeFront {
+            0% {
+                transform: translate(1px, 1px);
+            }
+            20% {
+                transform: translate(-1px, 0);
+            }
+            60% {
+                transform: translate(-1px, 0);
+            }
+            100% {
+                transform: translate(1px, -1px);
+            }
+        }
+        /* 后置文字 */
+        
+        @keyframes shake {
+            0% {
+                transform: translate(-5px, -100%);
+            }
+            20% {
+                transform: translate(-3px, -100%);
+            }
+            60% {
+                transform: translate(1px, calc(-100% - 1px));
+            }
+            100% {
+                transform: translate(2px, calc(-100% + 1px));
+            }
+        }
+        /* 故障线 */
+        
+        @keyframes lineShake {
+            0% {
+                top: 10%;
+            }
+            20% {
+                top: 60%;
+            }
+            40% {
+                top: 35%;
+            }
+            60% {
+                top: 2%;
+            }
+            80% {
+                top: 80%;
+            }
+            100% {
+                top: 99%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="blink">
+        <div class="blink-item">
+            <div class="text text-front">趣谈前端</div>
+            <div class="text text-back">趣谈前端</div>
+        </div>
+    </div>
+</body>
+
+</html>
