@@ -1,0 +1,38 @@
+<!--
+ * @Author: Li Zhiliang
+ * @Date: 2020-11-09 16:55:20
+ * @LastEditors: Li Zhiliang
+ * @LastEditTime: 2020-11-09 17:10:35
+ * @FilePath: /Canvas/docs/css-animation/radial/index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>线性渐变的凹面矩形过渡动效</title>
+    <style>
+        .rectangular {
+            height: 300px;
+            background: radial-gradient(300px 300px at 112px 0, #eee 75%, #333 75%);
+        }
+        
+        #masked {
+            width: 300px;
+            height: 300px;
+            /* background-color: #8cffa0; */
+            background: linear-gradient(115deg, #ff66ff, #4db8ff);
+            mask-image: radial-gradient(300px 300px at 112px 0, rgba(255, 255, 255, 0) 75%, #333 75%);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1. 实现凹面矩形 -->
+    <div class="rectangular"></div>
+    <!-- 2. 实现线性渐变的凹面矩形 -->
+    <div id="masked" class="line-rectangular"></div>
+</body>
+
+</html>
