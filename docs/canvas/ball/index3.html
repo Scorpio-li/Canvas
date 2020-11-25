@@ -1,0 +1,233 @@
+<!--
+ * @Author: Li Zhiliang
+ * @Date: 2020-11-24 16:44:13
+ * @LastEditors: Li Zhiliang
+ * @LastEditTime: 2020-11-24 17:25:35
+ * @FilePath: /Canvas/docs/canvas/ball/index3.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帧率监视器</title>
+    <style>
+        html,
+        body,
+        canvas {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        
+        #canvas2 {
+            height: 50px;
+            width: auto;
+            position: fixed;
+            z-index: 2;
+            top: 10px;
+            left: 10px;
+            background: #dedede;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <canvas id="canvas2"></canvas>
+    <script>
+        // js 版本的计算两点距离公式
+        function twoPointDistance(p1, p2) {
+            let distance = Math.sqrt(Math.pow((p1.x - p2.x), 2) + Math.pow((p1.y - p2.y), 2));
+            return distance;
+        }
+        // 搭建html模版，初始化canvas画布、画笔
+        window.onload = () => {
+                const canvas = document.getElementById('canvas');
+                const canvas2 = document.getElementById('canvas2');
+                // 世界有多大舞台就要有多大😄
+                // ps： 这里的宽高不是css样式层面的宽高，是像素点哦
+                canvas.width = window.document.body.clientWidth;
+                canvas.height = window.document.body.clientHeight;
+                const ctx = canvas.getContext('2d');
+                const ctx2 = canvas2.getContext('2d');
+                // 多球运动
+                const num = 100;
+                let balls = []
+                    // 多姿多彩
+                const colors = ['#66cccc', '#ccff66', '#ff99cc', '#ff9999', '#666699', '#ff0033', '#FFF2B0'];
+                // 我要100个
+                for (let i = 0; i < num; i++) {
+                    balls.push(new Ball({
+                        ctx,
+                        // 随机出现在画布中任何一处
+                        x: Math.floor(Math.random() * ctx.canvas.width),
+                        y: Math.floor(Math.random() * ctx.canvas.height),
+                        radius: 10,
+                        color: colors[Math.floor(Math.random() * 7)]
+                    }))
+                }
+
+                // 将点之间添加连线
+                let delayTime = 0;
+                // 上一帧的时间
+                let lastTime = +new Date;
+                let fpsList = [];
+
+                // 监视器
+                // 绘制方法
+                const FPS = (fpsList) => {
+                        ctx2.font = '24px serif';
+                        ctx2.fillStyle = "#fff"
+                        const len = fpsList.length;
+                        ctx2.fillText(`FPS: ${fpsList[len - 1]}`, 5, 14);
+                        ctx2.lineWidth = '2'
+                        fpsList.forEach((time, index) => {
+                            if (time < 30) {
+                                ctx2.strokeStyle = '#fd5454';
+                            } else {
+                                ctx2.strokeStyle = '#6dc113';
+                            }
+                            ctx2.beginPath();
+                            ctx2.moveTo(ctx2.canvas.width - ((len - index) * 2), ctx2.canvas.height);
+                            ctx2.lineTo(ctx2.canvas.width - ((len - index) * 2), (ctx2.canvas.height - time * 0.5));
+                            ctx2.stroke();
+                        });
+                        // 删掉多余的
+                        if (len > 150) {
+                            fpsList.shift()
+                        }
+                    }
+                    // FPS(fpsList);
+
+                // 循环绘画
+                const loopDraw = () => {
+                    requestAnimationFrame(loopDraw);
+                    // 当前时间
+                    const now = +new Date;
+                    delayTime = now - lastTime;
+                    lastTime = now;
+                    fpsList.push(delayTime);
+                    // console.log(fpsList);
+                    FPS(fpsList);
+                    if (delayTime > 50) {
+                        delayTime = 50;
+                    }
+                    // ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+                    // 替换clearRect, 使上一次的效果透明度变成0.3
+                    ctx.fillStyle = 'rgba(255,255,255,0.3)';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                    balls.forEach((ball, index) => {
+                        ball.render();
+                        // 根据时间在updata中调整增量
+                        ball.updata(delayTime && delayTime);
+                        balls.forEach(ball2 => {
+                            const distance = twoPointDistance(ball, ball2)
+                                // 排除自己和100像素开外的
+                            if (distance && distance < 100) {
+                                ball.renderLine(ball2)
+                            }
+                        })
+                    })
+                }
+
+                loopDraw(); // 滴滴启动动画
+
+
+
+            }
+            // 定义一个Ball类
+        class Ball {
+            // 初始化的特征
+            constructor(options = {}) {
+                    const {
+                        x = 0, // x坐标
+                            y = 0, // y坐标
+                            ctx = null, // 神奇的画笔🖌️
+                            radius = 0, // 球的半径
+                            color = '#000' // 颜色
+                    } = options
+                    this.x = x;
+                    this.y = y;
+                    this.ctx = ctx;
+                    this.radius = radius;
+                    this.color = color;
+
+                    // 速度: 多球运动
+                    this.vx = (Math.random() - 0.5) * 10;
+                    this.vy = (Math.random() - 0.5) * 10;
+                    // 加速度
+                    this.gvx = (Math.random() - 0.5) * 0.01;
+                    this.gvy = (Math.random() - 0.5) * 0.01;
+                }
+                // 渲染
+            render() {
+                    this.ctx.beginPath();
+                    this.ctx.fillStyle = this.color;
+                    // 画圆
+                    this.ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI)
+                    this.ctx.fill()
+                }
+                // 让球做无重力运动
+            updata(delayTime) {
+                    // this.x += this.vx;
+                    // this.y += this.vy;
+                    // 每一帧的时间都不一样， 那么使用每一毫秒
+                    this.x += this.vx / (delayTime || 1) * 3;
+                    this.y += this.vy / (delayTime || 1) * 3;
+                    this.vy += this.gvy;
+                    this.vx += this.gvx;
+                    // 触顶
+                    if (this.y - this.radius <= 0) {
+                        this.y = this.radius
+                        this.vy = -this.vy * 0.99 // 随
+                    }
+                    // 触底
+                    if (this.y >= this.ctx.canvas.height - this.radius) {
+                        if (this.vy <= this.gvy * 2 + this.vy * 0.8) this.vy = 0;
+                        this.y = this.ctx.canvas.height - this.radius;
+                        this.vy = -this.vy * 0.75; // 便
+                    }
+                    //  触右
+                    if (this.x - this.radius <= 0) {
+                        this.x = this.radius
+                        this.vx = -this.vx * 0.5 // 设
+                    }
+                    // 触左
+                    if (this.x + this.radius >= this.ctx.canvas.width) {
+                        this.x = this.ctx.canvas.width - this.radius
+                        this.vx = -this.vx * 0.5 // 置
+                    }
+                }
+                // 添加连线
+            renderLine(target) {
+                // 渐变色，由我和target组成
+                let lingrad = this.ctx.createLinearGradient(this.x, this.y, target.x, target.y);
+                lingrad.addColorStop(0, this.color);
+                lingrad.addColorStop(1, target.color);
+
+                this.ctx.beginPath();
+                // this.ctx.strokeStyle = "ddd";
+                this.ctx.strokeStyle = lingrad;
+                this.ctx.moveTo(this.x, this.y);
+                this.ctx.lineTo(target.x, target.y);
+                this.ctx.stroke();
+            }
+
+            // 添加个圈
+            renderCircle(target, radius) {
+                this.ctx.beginPath();
+                this.ctx.strokeStyle = this.color;
+                this.ctx.arc((this.x + target.x) / 2, (this.y + target.y) / 2, radius, 0, 2 * Math.PI);
+                this.ctx.stroke();
+            }
+        }
+    </script>
+</body>
+
+</html>
