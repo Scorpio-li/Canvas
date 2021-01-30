@@ -1,0 +1,84 @@
+<!--
+ * @Author: Li Zhiliang
+ * @Date: 2021-01-28 17:11:48
+ * @LastEditors: Li Zhiliang
+ * @LastEditTime: 2021-01-28 17:28:45
+ * @FilePath: /Canvas/docs/animation/图片飞入/index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片飞入</title>
+    <style>
+        .wrapper {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            border: 1px solid #ccc;
+            margin: 50px auto;
+        }
+        
+        .wrapper .box {
+            position: absolute;
+            width: 60px;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper"></div>
+
+</body>
+<!-- <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.js"></script> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script>
+    //获取容器盒子
+    const wrapper = document.querySelector('.wrapper');
+    //快速生成一个length为100的数组
+    const list = [...new Array(100).keys()];
+    //打乱数组的顺序
+    list.sort((a, b) => Math.random() - 0.5);
+    //初始化索引值
+    let index = 0;
+
+    function fly() {
+        //index=100时直接return
+        if (index === 100) return;
+        //取出当前小盒子的位置，取完后index需要自增1
+        let currentVal = list[index++];
+        //获取当前盒子的left和top值
+        const left = currentVal % 10 * 60;
+        const top = Math.floor(currentVal / 10) * 40
+
+        //生成一个盒子
+        const box = document.createElement('div');
+        //加上我们前面定义的类名
+        box.classList.add('box');
+        //设置背景图片的定位值和其他属性，这里./timg.jpg就是我们的素材图片
+        box.style.cssText = `background:url('./timg.jpeg') ${-left}px ${-top}px no-repeat;background-size: 600px 400px;`;
+        //插入到容器中
+        wrapper.appendChild(box);
+        //生成飞入动画，需要注意在此之前我们需要先引入anime.js
+        let animation = anime({
+            targets: box, //目标元素，这里指当前飞入的小盒子
+            left: left + 'px', //每一个小盒子的left值
+            top: top + 'px', //每一个小盒子的top值
+            duration: 80, //每一个小盒子飞入的执行时间，单位是毫秒
+            easing: 'linear', //这里可以设置很多不一样的参数来控制动画如何执行
+            //执行完当前动画后延迟回调，因为我们需要执行100次，所以进行递归调用
+            complete: function() {
+                console.log('complete');
+                fly();
+            }
+        })
+    }
+    //开始执行
+    fly();
+</script>
+
+</html>
