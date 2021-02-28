@@ -1,0 +1,162 @@
+<!--
+ * @Author: Li Zhiliang
+ * @Date: 2021-02-27 16:35:28
+ * @LastEditors: Li Zhiliang
+ * @LastEditTime: 2021-02-27 17:00:07
+ * @FilePath: /Canvas/docs/canvas/fireworks/index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas绘制烟花</title>
+    <!-- <style>
+        .bg {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            background: #192f47;
+            display: flex;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style> -->
+</head>
+
+<body>
+    <!-- <canvas id="canvas">您的浏览器不支持canvas</canvas> -->
+    <!-- <canvas id="canvas2" width="500" height="500" style="background: #000;">您的浏览器不支持canvas</canvas> -->
+</body>
+<!-- <script src="./index.js"></script> -->
+<script>
+    // 烟花幕布
+    // 先新建一个和网页可视区大小一样的canvas，并且通过监听显示区的resize事件，来改变canvas的大小。
+    var cdom = document.createElement("canvas");
+    cdom.id = "myCanvas";
+    cdom.style.position = "fixed";
+    cdom.style.left = "0";
+    cdom.style.top = "0";
+    cdom.style.zIndex = -1;
+    document.body.appendChild(cdom);
+
+    var canvas = document.getElementById('myCanvas');
+    var context = canvas.getContext('2d');
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas, false);
+    resizeCanvas();
+    clearCanvas();
+
+    function clearCanvas() {
+        context.fillStyle = '#000000';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // 烟花粒子
+    // 烟花都是从一个点爆炸，伴随着不同的弧度散开，所以我们先绘制几个小圆点，环绕着一个圆心。有点像loading的小圈圈。这其实就是烟花最开始的状态...
+    document.addEventListener('mousedown', mouseDownHandler, false);
+
+    // function mouseDownHandler(e) {
+    //     var x = e.clientX;
+    //     var y = e.clientY;
+
+    //     drawFireworks(x, y);
+    // }
+
+    // function drawFireworks(sx, sy) {
+    //     var count = 10; //烟花粒子数量
+    //     var radius = 10; //烟花环绕半径
+
+    //     for (var i = 0; i < count; i++) {
+    //         var angle = 360 / count * i; //烟花粒子角度
+    //         var radians = angle * Math.PI / 180; //烟花粒子弧度
+
+    //         var vx = sx + Math.cos(radians) * radius;
+    //         var vy = sy + Math.sin(radians) * radius;
+
+    //         var size = 2;
+    //         context.beginPath();
+    //         context.arc(vx, vy, size, 0, Math.PI * 2, false)
+    //         context.closePath();
+    //         context.fillStyle = "#ff0000";
+    //         context.fill();
+    //     }
+    // }
+
+    function mouseDownHandler(e) {
+        var x = e.clientX;
+        var y = e.clientY;
+        console.log('mousedowm', x, y);
+        fire(x, y)
+    }
+
+    function drawFireworks() {
+        clearCanvas();
+        // console.log(sx, sy);
+        for (var i = 0; i < particles.length; i++) {
+            var p = particles[i];
+            var vx = Math.cos(p.radians) * p.radius;
+            var vy = Math.sin(p.radians) * p.radius + 0.4;
+            p.x += vx;
+            p.y += vy;
+            p.radius *= 1 - p.speed / 300;
+            p.alpha -= 0.006;
+            context.beginPath();
+            context.arc(p.x, p.y, p.size, 0, Math.PI * 2, false);
+            context.closePath();
+            context.fillStyle = 'hsla(' + p.hue + ', 100%, ' + p.brightness + '%, ' + p.alpha + ')';
+            context.fill();
+        }
+    }
+
+
+    // 烟花绽放
+    var radius = 0;
+
+    function fire(x, y) {
+        createFireworks(x, y);
+
+        function tick() {
+            context.globalCompositeOperation = 'source-over';
+            context.fillStyle = 'rgba(0,0,0,' + 10 / 100 + ')';
+            context.fillRect(0, 0, canvas.width, canvas.height);
+            context.globalCompositeOperation = 'lighter';
+            drawFireworks();
+            radius = requestAnimationFrame(tick);
+        }
+        cancelAnimationFrame(radius);
+        tick();
+    }
+
+    function createFireworks(sx, sy) {
+        particles = [];
+        var hue = Math.floor(Math.random() * 51) + 150;
+        var hueVariance = 30;
+        var count = 100;
+        for (var i = 0; i < count; i++) {
+            var p = {};
+            var angle = Math.floor(Math.random() * 360);
+            p.radians = angle * Math.PI / 180;
+            p.x = sx;
+            p.y = sy;
+            p.speed = (Math.random() * 5) + .4;
+            p.radius = p.speed;
+            p.size = Math.floor(Math.random() * 3) + 1;
+            p.hue = Math.floor(Math.random() * ((hue + hueVariance) - (hue - hueVariance))) + (hue - hueVariance);
+            p.brightness = Math.floor(Math.random() * 31) + 50;
+            p.alpha = (Math.floor(Math.random() * 61) + 40) / 100;
+            particles.push(p);
+        }
+    }
+</script>
+
+</html>
