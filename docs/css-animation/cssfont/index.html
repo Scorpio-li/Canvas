@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS字体特效</title>
+    <link rel="stylesheet" href="./css/shadow.css">
+    <link rel="stylesheet" href="./css/background.css">
+    <style>
+        div {
+            font-size: 72px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 文字与阴影 -->
+    <div class="shadow">
+        <!-- 长阴影文字效果 -->
+        <div class="text-shadow">Long Shadow 1111</div>
+        <!-- 立体阴影文字效果 -->
+        <div class="deep-shadow">Deep Shadow</div>
+        <!-- 内嵌阴影文字效果 -->
+        <div class="inset-shadow">Inset Shadow</div>
+        <!-- 氖光效果（Neon） -->
+        <p class="neon">Neon</p>
+        <p class="neon-list">
+            <span id="n">n</span>
+            <span id="e">e</span>
+            <span id="o">o</span>
+            <span id="n2">n</span>
+        </p>
+    </div>
+
+    <!-- 文字与背景 -->
+    <div class="background">
+        <!-- background-clip 与文字 -->
+        <div class="clip">Clip</div>
+        <!-- 渐变文字 -->
+        <div class="gradient">BACKGROUND-CLIP:TEXT</div>
+        <div class="gradient-animation">BACKGROUND-CLIP:TEXT</div>
+        <!-- 文字高亮 -->
+        <p class="highlight" data-text="Lorem ipsum dolor"> Lorem ipsum dolor </p>
+        <!-- 出场特效 -->
+        <p class="mask">Hello MASK</p>
+        <p class="radial">Hello Mask</p>
+    </div>
+
+
+</body>
+
+</html>

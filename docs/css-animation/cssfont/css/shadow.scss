@@ -1,0 +1,14 @@
+// 多重阴影以及每重的颜色我们很难一个一个手动去写，在写长阴影的时候通常需要借助 SASS、LESS 去帮助节省时间：
+@function makelongrightshadow($color) {
+    $val: 0px 0px $color;
+    @for $i from 1 through 50 {
+        $color: fade-out(desaturate($color, 1%), .02);
+        $val: #{$val},
+        #{$i}px #{$i}px #{$color};
+    }
+    @return $val;
+}
+
+div {
+    text-shadow: makeLongShadow(hsl(14, 100%, 30%));
+}
