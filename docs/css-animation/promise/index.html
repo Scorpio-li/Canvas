@@ -1,0 +1,53 @@
+<!--
+ * @Author: Li Zhiliang
+ * @Date: 2021-03-26 11:00:02
+ * @LastEditors: Li Zhiliang
+ * @LastEditTime: 2021-03-26 11:05:23
+ * @FilePath: /Canvas/docs/css-animation/promise/index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基于 Promise 的动画库 </title>
+    <style>
+        #block {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="block"></div>
+</body>
+<script src="./animator.js"></script>
+<script>
+    let block = document.getElementById("block");
+    // 对 requestAnimationFrame 进行 polyfill
+    // if (typeof global.requestAnimationFrame === 'undefined') {
+    //     global.requestAnimationFrame = function(callback) {
+    //         return setTimeout(function() { //polyfill
+    //             callback.call(this, nowtime());
+    //         }, 1000 / 60);
+    //     }
+    //     global.cancelAnimationFrame = function(qId) {
+    //         return clearTimeout(qId);
+    //     }
+    // }
+
+    // 兼容老版本的浏览器，我们先对一些基础函数进行封装
+    function nowtime() {
+        if (typeof performance !== 'undefined' && performance.now) {
+            return performance.now();
+        }
+        return Date.now ? Date.now() : (new Date()).getTime();
+    }
+</script>
+<!-- <script src="./async.js"></script> -->
+<script src="./compatible.js"></script>
+
+</html>
